@@ -1,0 +1,14 @@
+{
+  "name": "reborn-automator",
+  "description": "",
+  "version": "0.1.0",
+  "devDependencies": {
+    "serverless-iam-roles-per-function": "^3.2.0",
+    "serverless-python-requirements": "^6.1.1"
+  },
+  "overrides": {
+    "serverless-python-requirements": {
+      "serverless": "$serverless"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+interactions:
+- request:
+    body: mail=**REDACTED**&pass=**REDACTED**
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '41'
+      Content-Type:
+      - application/x-www-form-urlencoded
+    method: POST
+    uri: https://reborn.shaggyowl.com/funzioniapp/v407/loginApp
+  response:
+    body:
+      string: '{"status": 2, "messaggio": "Accesso effettuato con successo.", "parametri":
+        {"sessione": {"isFacebook": 0, "idFacebook": "", "isGoogle": 0, "idGoogle":
+        "", "idSede": "", "idCliente": "**REDACTED**", "statoCliente": "", "nomeCliente":
+        "**REDACTED**", "cognomeCliente": "", "mail": "**REDACTED**", "pass": "",
+        "codice_sessione": "**REDACTED**", "path_img": "https://storage.shaggyowl.com/myapp/immagini/default/thumb-app-palestre.jpg",
+        "path_img_big": "https://storage.shaggyowl.com/myapp/immagini/default/thumb-app-palestre.jpg",
+        "sede": "{}", "cliente": {}}, "sedi_collegate": [{"nome": "Reborn", "id_sede":
+        "47", "codice": "jkdGu3stmetropreborn", "path_img": "image-picker-0e310cc0-cdc8-49cf-a514-83d17b522f77-1397-0000016136ebe886-1829569936.png",
+        "path_img_list": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_sedi/152_152/image-picker-0e310cc0-cdc8-49cf-a514-83d17b522f77-1397-0000016136ebe886-1829569936.png",
+        "path_img_big": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_sedi/image-picker-0e310cc0-cdc8-49cf-a514-83d17b522f77-1397-0000016136ebe886-1829569936.png",
+        "path_img_inner": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_sedi/250_640/image-picker-0e310cc0-cdc8-49cf-a514-83d17b522f77-1397-0000016136ebe886-1829569936.png",
+        "active": 1, "comune": "Torre Boldone", "telefono": "3336286549", "web": "http://www.youreborn.it/",
+        "mail": "info@youreborn.it", "facebook": "https://www.facebook.com/yourebornofficial/",
+        "twitter": "", "google": "", "instagram": "https://www.instagram.com/yourebornofficial/?hl=it",
+        "testo": "<h6><span style=\"font-weight: normal;\"><span style=\"font-size:
+        12px;\"><i>Palestra funzionale presente sul territorio bergamasco dal 2011.<br></i></span><span
+        style=\"font-size: 12px;\"><i>La nostra forza sono l\u2019elasticit\u00e0
+        e la professionalit\u00e0. Lavoriamo con il cliente per essere sicuri di raggiungere
+        ogni obiettivo, piccolo o grande che sia.</i></span></span></h6>", "distance":
+        "", "indirizzo_completo": "Torre Boldone, Largo delle Industrie 9, 24020 Bergamo,
+        LOMBARDIA", "lat": "45.7096864", "lon": "9.7141489", "listaPagine": ["home_utente_crossfit",
+        "palinsesto", "wod", "info_cliente"], "id_stato_lavorazione": "3", "lista_utenti":
+        [], "impostazioni_sede": {"on_boarding": {"on_boarding_attivo": "2", "carta_di_credito_obbligatoria":
+        "1", "on_boarding_sezioni": [{"key": "dati_utente", "campi_obbligatori": ["1",
+        "2", "7", "8", "9", "12", "29"], "tipologie": []}, {"key": "documenti", "campi_obbligatori":
+        [], "tipologie": ["attestati_medici"]}, {"key": "regolamenti", "campi_obbligatori":
+        ["regolamento"], "tipologie": []}]}, "sezioni_da_nascondere": ["servizi",
+        "prenotazioni_campi", "shop", "multimedia", "disponibilita", "schede", "Multimedia"],
+        "impostazioni_abbonamenti": "", "struttura_multimedia": [], "filtri_staff_disponibilita":
+        null, "compenso_staff_ore_no_preno": "2", "compenso_corsi_non_prenotabili":
+        "2", "mostra_priorita": "1", "impostazioni_personalizzazione_app": {"primary_color_light":
+        "#4d6fb2", "primary_color_dark": "#4d6fb2", "theme_mode": "both", "bottom_bar":
+        ["home_utente_crossfit", "palinsesto", "wod", "info_cliente"], "placeholder_pers_list":
+        null, "bottom_bar_style": "Stile 1", "bottom_bar_fab": "servizi", "nascondere_numero_di_prenotati":
+        "1", "permetti_modifica_livello": "1", "livelli": [{"id": "0", "nome": "Nessuno"},
+        {"id": "1", "nome": "Base"}, {"id": "2", "nome": "Base-Intermedio"}, {"id":
+        "3", "nome": "Intermedio"}, {"id": "4", "nome": "Intermedio-Avanzato"}, {"id":
+        "5", "nome": "Avanzato"}], "etichette": [{"id": "palinsesto", "nome": "Palinsesto"},
+        {"id": "wod", "nome": "WOD"}, {"id": "disponibilita", "nome": "Personal"},
+        {"id": "schede", "nome": "Schede"}, {"id": "abbonamenti", "nome": "Abbonamenti"},
+        {"id": "sessioni", "nome": "Sessioni"}, {"id": "wod_log", "nome": "WOD Log"},
+        {"id": "corsi", "nome": "Corsi"}, {"id": "prenotazioni", "nome": "Prenotazioni"},
+        {"id": "prenotazioni_campi", "nome": "Campetti"}, {"id": "info_cliente", "nome":
+        "Le tue info"}, {"id": "sede", "nome": "Centro"}, {"id": "servizi", "nome":
+        "Servizi"}], "font": "Poppins"}}, "myapp": "2", "indirizzo_android": "https://play.google.com/store/apps/details?id=com.shaggyowl.reborn&hl=it&gl=US",
+        "indirizzo_ios": "https://apps.apple.com/it/app/youreborn/id1398754364"}]}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Fri, 25 Oct 2024 13:58:57 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      content-length:
+      - '4108'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: id_sede=47&codice_sessione=**REDACTED**&id_orario_palinsesto=99&data=2024-10-30
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '87'
+      Content-Type:
+      - application/x-www-form-urlencoded
+    method: POST
+    uri: https://reborn.shaggyowl.com/funzioniapp/v407/prenotazione_new
+  response:
+    body:
+      string: '{"status": 1, "messaggio": "Qualcosa \u00e8 andato storto. Ti ricordiamo
+        che per prenotare devi essere loggato alla tua struttura. Controlla la connessione,
+        il tuo stato e riprova.", "parametri": {}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Fri, 25 Oct 2024 13:58:57 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      content-length:
+      - '194'
+    status:
+      code: 200
+      message: OK
+version: 1
