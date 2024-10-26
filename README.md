@@ -16,15 +16,23 @@ There is no HTTP interface (apart from the introspection endpoint), but just a
 
 Architecture
 ============
-TODO
+The main Lambda function is triggered by a cron schedule in Event Bridge, CloudWatch:
+  - cron(10 19 ? * MON *) # Every Monday at 19:10 UTC (20:10/21:10AM in Rome winter/summer).
+  - cron(10 19 ? * WED *) # Every Wednesday at 19:10 UTC (20:10/21:10AM in Rome winter/summer).
+These times work with the business rules explained in `How it works`.
 
+To send Telegram messages, we use Botte (part of the Patatrack monorepo) via HTTP.
+
+No database.
+
+![architecture-draw.io.svg](./docs/img/architecture-draw.io.svg)
 
 
 How it works
 ============
 Classes are usually booked via a mobile app that performs regular HTTP(s) requests.
 
-I inspected these requests by installing the app on the emulator GenyMotion on macOS
+I inspected these requests by installing the app on the emulator Genymotion on macOS
  and intercepting the traffic using [HTTP Toolkit](https://httptoolkit.com/docs/guides/android/).\
 Find the details of these requests in the next sections.
 
