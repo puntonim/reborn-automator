@@ -130,18 +130,19 @@ def before_record_response(response):
     if "access_token" in data:
         data["access_token"] = "**REDACTED**"
 
-    if data.get("parametri", {}).get("sessione", {}).get("codice_sessione"):
-        data["parametri"]["sessione"]["codice_sessione"] = "**REDACTED**"
-    if data.get("parametri", {}).get("sessione", {}).get("idCliente"):
-        data["parametri"]["sessione"]["idCliente"] = "**REDACTED**"
-    if data.get("parametri", {}).get("sessione", {}).get("nomeCliente"):
-        data["parametri"]["sessione"]["nomeCliente"] = "**REDACTED**"
-    if data.get("parametri", {}).get("sessione", {}).get("cognomeCliente"):
-        data["parametri"]["sessione"]["cognomeCliente"] = "**REDACTED**"
-    if data.get("parametri", {}).get("sessione", {}).get("mail"):
-        data["parametri"]["sessione"]["mail"] = "**REDACTED**"
-    if data.get("parametri", {}).get("sessione", {}).get("pass"):
-        data["parametri"]["sessione"]["pass"] = "**REDACTED**"
+    if isinstance(data, dict):
+        if data.get("parametri", {}).get("sessione", {}).get("codice_sessione"):
+            data["parametri"]["sessione"]["codice_sessione"] = "**REDACTED**"
+        if data.get("parametri", {}).get("sessione", {}).get("idCliente"):
+            data["parametri"]["sessione"]["idCliente"] = "**REDACTED**"
+        if data.get("parametri", {}).get("sessione", {}).get("nomeCliente"):
+            data["parametri"]["sessione"]["nomeCliente"] = "**REDACTED**"
+        if data.get("parametri", {}).get("sessione", {}).get("cognomeCliente"):
+            data["parametri"]["sessione"]["cognomeCliente"] = "**REDACTED**"
+        if data.get("parametri", {}).get("sessione", {}).get("mail"):
+            data["parametri"]["sessione"]["mail"] = "**REDACTED**"
+        if data.get("parametri", {}).get("sessione", {}).get("pass"):
+            data["parametri"]["sessione"]["pass"] = "**REDACTED**"
 
     response["body"]["string"] = json.dumps(data).encode()
     return response

@@ -1,9 +1,11 @@
+import json
 from typing import Any
 
 from aws_lambda_powertools.utilities.typing import LambdaContext
 
-from ..conf import settings
+from ..clients.botte_api_client import BotteApiClient
 from ..domains.book_class_domain import BookClassDomain, FailedBooking
+from ..utils import emoji_utils
 from ..utils.log_utils import logger
 
 # Objects declared outside the Lambda's handler method are part of Lambda's
@@ -68,14 +70,42 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
     domain = BookClassDomain()
     exception = None
     response = None
+    day_date = None
     try:
-        response = domain.book_next_calisthenics_class()
+        response, day_date = domain.book_next_calisthenics_class()
     except FailedBooking as exc:
-        logger.error(exc.response)
         exception = exc
+    except Exception as exc:
+        exception = exc
+
+    # Use Botte (from patatrack monorepo) to send a Telegram message.
+    botte = BotteApiClient()
 
     if not exception:
         logger.info("Booking successful", extra=dict(response=response))
+        botte.send_telegram_message(
+            emoji_utils.MUSCLE
+            + emoji_utils.GREEN_CIRCLE
+            + "Calisthenics class booked for "
+            + day_date.strftime("%Y-%m-%d")
+        )
 
     if exception:
+        extra = None
+        error_msg = str(exception)
+        if isinstance(exception, FailedBooking):
+            extra = dict(response=exception.response)
+            day_date = exception.day_date
+            error_msg = json.dumps(exception.response, indent=2)
+        logger.info("Booking error", extra=extra)
+        botte.send_telegram_message(
+            emoji_utils.MUSCLE
+            + emoji_utils.RED_CIRCLE
+            + "Calisthenics class NOT booked for "
+            + day_date.strftime("%Y-%m-%d")
+            # Botte only supports plain text now, so no formatting.
+            # + '\n<pre><code class="language-json">\n'
+            + "\n\n"
+            + error_msg
+        )
         raise exception

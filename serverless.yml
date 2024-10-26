@@ -1,14 +1,13 @@
 # Serverless version 4.4.7.
 
-# "org" ensures this Service is used with the correct Serverless Framework Access Key.
-org: nimiq
 # Docs:
 #  - Serverless for AWS full specs: https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml/
 #  - Python reqs: https://github.com/UnitedIncome/serverless-python-requirements
 #  - IAM: https://www.serverless.com/framework/docs/providers/aws/guide/iam
 #  - IAM Roles Per Function: https://www.serverless.com/plugins/serverless-iam-roles-per-function
 
-
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: nimiq
 service: reborn-automator
 
 
@@ -25,8 +24,14 @@ provider:
     # Note: it's better to store all secrets here rather than nested under `functions:`
     #  so they are available to all Lambdas and to the `/settings` introspection endpoint.
     # Some are from ssm Parameter Store: https://www.serverless.com/framework/docs/providers/aws/guide/variables#reference-variables-using-the-ssm-parameter-store
+    #
+    # Credentials used in Reborn mobile app.
     REBORN_CREDS_USERNAME: ${env:REBORN_CREDS_USERNAME, ssm:/reborn-automator/${opt:stage, self:provider.stage}/reborn-creds-username, ssm:/reborn-automator/production/reborn-creds-username, 'XXX'}
     REBORN_CREDS_PASSWORD: ${env:REBORN_CREDS_PASSWORD, ssm:/reborn-automator/${opt:stage, self:provider.stage}/reborn-creds-password, ssm:/reborn-automator/production/reborn-creds-password, 'XXX'}
+    # Botte project (in patatrack monorepo) token to be used to authentic with its
+    #  HTTP interface (it's the env var API_AUTHORIZER_TOKEN in Botte).
+    BOTTE_AUTH_TOKEN: ${env:BOTTE_AUTH_TOKEN, ssm:/patatrack-botte/prod/api-authorizer-token, 'XXX'}
+
   tags: # CloudFormation tags to apply to APIs and functions.
     project: ${self:service}
     environment: ${sls:stage}

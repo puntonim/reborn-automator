@@ -104,18 +104,19 @@ class BookClassDomain:
                         raise MissingIdOrarioPalinsesto(klass)
                     return klass_id, klass, day_date
 
-    def book_next_calisthenics_class(self, sede_id: int = 47) -> dict:
+    def book_next_calisthenics_class(self, sede_id: int = 47) -> tuple[dict, date]:
         """
         Returns:
             {"status": 1, "messaggio": "Prenotazioni non aperte.", "parametri":{}}
         """
         logger.debug(f"Booking next Calisthenics class...")
         self._login()
-        klass_id, _, day_date = self.get_next_calisthenics_class(sede_id)
-        data = self.client.book_class(klass_id, day_date)
+        class_id, _, day_date = self.get_next_calisthenics_class(sede_id)
+        day_date: date
+        data = self.client.book_class(class_id, day_date)
         if data.get("status") != 2:
-            raise FailedBooking(data)
-        return data
+            raise FailedBooking(data, class_id, day_date)
+        return data, day_date
 
 
 class BaseBookClassDomainException(Exception):
@@ -133,5 +134,7 @@ class MissingIdOrarioPalinsesto(BaseBookClassDomainException):
 
 
 class FailedBooking(BaseBookClassDomainException):
-    def __init__(self, response: dict):
+    def __init__(self, response: dict, class_id: int, day_date: date):
         self.response = response
+        self.class_id = class_id
+        self.day_date = day_date

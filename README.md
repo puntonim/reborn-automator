@@ -14,6 +14,12 @@ There is no HTTP interface (apart from the introspection endpoint), but just a
  cron-scheduled Lambda. So it works automatically.
 
 
+Architecture
+============
+TODO
+
+
+
 How it works
 ============
 Classes are usually booked via a mobile app that performs regular HTTP(s) requests.
