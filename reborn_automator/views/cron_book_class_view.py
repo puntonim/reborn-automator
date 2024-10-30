@@ -4,7 +4,11 @@ from typing import Any
 from aws_lambda_powertools.utilities.typing import LambdaContext
 
 from ..clients.botte_api_client import BotteApiClient
-from ..domains.book_class_domain import BookClassDomain, FailedBooking
+from ..domains.book_class_domain import (
+    BookClassDomain,
+    FailedBooking,
+    NoCalisthenicsClassFoundInPalinsesto,
+)
 from ..utils import emoji_utils
 from ..utils.log_utils import logger
 
@@ -73,7 +77,7 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
     day_date = None
     try:
         response, day_date = domain.book_next_calisthenics_class()
-    except FailedBooking as exc:
+    except (FailedBooking, NoCalisthenicsClassFoundInPalinsesto) as exc:
         exception = exc
     except Exception as exc:
         exception = exc
@@ -91,21 +95,26 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
         )
 
     if exception:
-        extra = None
-        error_msg = str(exception)
-        if isinstance(exception, FailedBooking):
-            extra = dict(response=exception.response)
-            day_date = exception.day_date
-            error_msg = json.dumps(exception.response, indent=2)
+        exc_str = str(exception)
+        extra = dict(exc=exc_str)
+        message = emoji_utils.MUSCLE + emoji_utils.RED_CIRCLE
+
+        if isinstance(exception, NoCalisthenicsClassFoundInPalinsesto):
+            message += "Calisthenics class NOT found in palinsesto"
+        else:
+            if isinstance(exception, FailedBooking):
+                extra = extra["response"] = exception.response
+                day_date = exception.day_date
+                exc_str = json.dumps(exception.response, indent=2)
+            message += (
+                "Calisthenics class NOT booked for "
+                + day_date.strftime("%Y-%m-%d")
+                # Botte only supports plain text now, so no formatting.
+                # + '\n<pre><code class="language-json">\n'
+                + "\n\n"
+                + exc_str
+            )
+
         logger.info("Booking error", extra=extra)
-        botte.send_telegram_message(
-            emoji_utils.MUSCLE
-            + emoji_utils.RED_CIRCLE
-            + "Calisthenics class NOT booked for "
-            + day_date.strftime("%Y-%m-%d")
-            # Botte only supports plain text now, so no formatting.
-            # + '\n<pre><code class="language-json">\n'
-            + "\n\n"
-            + error_msg
-        )
+        botte.send_telegram_message(message)
         raise exception

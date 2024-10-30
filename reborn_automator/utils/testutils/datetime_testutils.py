@@ -36,13 +36,13 @@ class freeze_time(ContextDecorator):
 
     def __enter__(self):
         self.mock0 = mock.patch(
-            "patatrack_utils.datetime_utils.now_utc",
+            "reborn_automator.utils.datetime_utils.now_utc",
             return_value=self.date.astimezone(timezone.utc),
         )
         self.mock0.start()
 
         self.mock1 = mock.patch(
-            "patatrack_utils.datetime_utils.now",
+            "reborn_automator.utils.datetime_utils.now",
             return_value=self.date.astimezone(),
         )
         self.mock1.start()
