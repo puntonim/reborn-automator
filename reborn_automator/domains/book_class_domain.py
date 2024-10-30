@@ -103,6 +103,7 @@ class BookClassDomain:
                     if klass_id is None:
                         raise MissingIdOrarioPalinsesto(klass)
                     return klass_id, klass, day_date
+        raise NoCalisthenicsClassFoundInPalinsesto
 
     def book_next_calisthenics_class(self, sede_id: int = 47) -> tuple[dict, date]:
         """
@@ -111,7 +112,10 @@ class BookClassDomain:
         """
         logger.debug(f"Booking next Calisthenics class...")
         self._login()
-        class_id, _, day_date = self.get_next_calisthenics_class(sede_id)
+        try:
+            class_id, _, day_date = self.get_next_calisthenics_class(sede_id)
+        except NoCalisthenicsClassFoundInPalinsesto:
+            raise
         day_date: date
         data = self.client.book_class(class_id, day_date)
         if data.get("status") != 2:
@@ -138,3 +142,7 @@ class FailedBooking(BaseBookClassDomainException):
         self.response = response
         self.class_id = class_id
         self.day_date = day_date
+
+
+class NoCalisthenicsClassFoundInPalinsesto(BaseBookClassDomainException):
+    pass
