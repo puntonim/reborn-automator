@@ -95,7 +95,7 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
         )
 
     if exception:
-        exc_str = str(exception)
+        exc_str = f"{exception.__class__.__name__}: {exception}"
         extra = dict(exc=exc_str)
         message = emoji_utils.MUSCLE + emoji_utils.RED_CIRCLE
 
@@ -104,11 +104,11 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
         else:
             if isinstance(exception, FailedBooking):
                 extra = extra["response"] = exception.response
-                day_date = exception.day_date
+                day_date = exception.day_date.strftime("%Y-%m-%d")
                 exc_str = json.dumps(exception.response, indent=2)
             message += (
                 "Calisthenics class NOT booked for "
-                + day_date.strftime("%Y-%m-%d")
+                + str(day_date)
                 # Botte only supports plain text now, so no formatting.
                 # + '\n<pre><code class="language-json">\n'
                 + "\n\n"
