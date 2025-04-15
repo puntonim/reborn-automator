@@ -1,4 +1,3 @@
-import json
 from typing import Any
 
 from aws_lambda_powertools.utilities.typing import LambdaContext
@@ -103,9 +102,9 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
             message += "Calisthenics class NOT found in palinsesto"
         else:
             if isinstance(exception, FailedBooking):
-                extra = extra["response"] = exception.response
+                extra["response"] = exception.response
                 day_date = exception.day_date.strftime("%Y-%m-%d")
-                exc_str = json.dumps(exception.response, indent=2)
+                exc_str = exception.response.get("messaggio") or str(exception.response)
             message += (
                 "Calisthenics class NOT booked for "
                 + str(day_date)
