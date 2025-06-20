@@ -79,8 +79,8 @@ functions:
       #  - https://www.serverless.com/framework/docs/providers/aws/events/schedule
       - schedule:
           rate:
-            - cron(10 19 ? * MON *) # Every Monday at 19:10 UTC (20:10/21:10AM in Rome winter/summer).
-            - cron(10 19 ? * WED *) # Every Wednesday at 19:10 UTC (20:10/21:10AM in Rome winter/summer).
+            - cron(5 19 ? * MON *) # Every Monday at 19:05 UTC (20:05/21:05AM in Rome winter/summer).
+            - cron(5 19 ? * SAT *) # Every Saturday at 19:05 UTC (20:05/21:05AM in Rome winter/summer).
     iamRoleStatements: []
 
 
