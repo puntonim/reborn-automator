@@ -30,7 +30,7 @@ logger.info("CRON BOOK CLASS: LOADING")
 @logger.inject_lambda_context(log_event=True)
 def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
     """
-    Book the next calisthenics class at Reborn.
+    Book the next **calisthenics** class at Reborn.
 
     Args:
         event: an AWS event, eg. CloudWatch Scheduled Event.

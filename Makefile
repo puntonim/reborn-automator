@@ -1,4 +1,4 @@
-PYTHON_VERSION:="3.12.4"
+PYTHON_VERSION:="3.13.7"
 SRC_DIR:="reborn_automator"
 
 .PHONY: default
@@ -68,7 +68,7 @@ deploy:
 
 .PHONY : test
 test:
-	poetry run pytest -s tests/ -v -n auto --durations=25
+	poetry run pytest -s tests/ -v -n auto --durations=5
 
 
 .PHONY : format

@@ -13,14 +13,14 @@ from reborn_automator.utils.testutils.aws_testfactories.cloudwatch_event_factory
 from reborn_automator.utils.testutils.aws_testfactories.lambda_context_factory import (
     LambdaContextFactory,
 )
-from reborn_automator.views.cron_book_class_view import lambda_handler
+from reborn_automator.views.cron_book_cali_class_view import lambda_handler
 
 frozen_date1 = datetime(2024, 10, 25, 11, 0, 0).astimezone()
 frozen_date2 = datetime(2024, 10, 30, 11, 0, 0).astimezone()
 frozen_date3 = datetime(2025, 4, 15, 12, 0, 0).astimezone()
 
 
-class TestCronBookClassView:
+class TestCronBookCaliClassView:
     def setup_method(self):
         self.context = LambdaContextFactory().make()
 

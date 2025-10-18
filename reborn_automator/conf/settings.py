@@ -26,14 +26,16 @@ class settings:
 
     # Credentials used in Reborn mobile app.
     # Read the Reborn creds from env vars (when running in AWS Lambda) or from
-    #  local file (when running in dev machine) - which is git ignored indeed ;).
+    #  AWS Param Store (in dev or when recording tests).
     REBORN_CREDS_USERNAME = settings_utils.get_string_from_env_or_aws_parameter_store(
         env_key="REBORN_CREDS_USERNAME",
+        # AWS Param Store used in dev and when recording tests.
         parameter_store_key_path="/reborn-automator/production/reborn-creds-username",
         default="XXX",
     )
     REBORN_CREDS_PASSWORD = settings_utils.get_string_from_env_or_aws_parameter_store(
         env_key="REBORN_CREDS_PASSWORD",
+        # AWS Param Store used in dev and when recording tests.
         parameter_store_key_path="/reborn-automator/production/reborn-creds-password",
         default="XXX",
     )
@@ -42,6 +44,7 @@ class settings:
     #  HTTP interface (it's the env var API_AUTHORIZER_TOKEN in Botte).
     BOTTE_AUTH_TOKEN = settings_utils.get_string_from_env_or_aws_parameter_store(
         env_key="BOTTE_AUTH_TOKEN",
+        # AWS Param Store used in dev and when recording tests.
         parameter_store_key_path="/patatrack-botte/prod/api-authorizer-token",
         default="XXX",
     )

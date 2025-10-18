@@ -1,24 +1,25 @@
 **Reborn Automator**
 ====================
 
-Automate the booking of classes at Reborn gym in Torre Boldone.\
-This project is based on a cron-triggered (CloudWatch events) Lambda in AWS.
+Automate the booking of classes at Reborn gym.\
+This project is deployed to AWS Lambda and it is triggered by cron events scheduled
+ in CloudWatch.
 
-At the right time, as per the cron schedule, the Lambda tries to book the next 
- calisthenics class, and send me a Telegram message with the result.
+At the right time, as per the cron schedule in CloudWatch, the Lambda tries to book
+ the next calisthenics class, and sends me a Telegram message with the result.
 
 
 Usage
 =====
 There is no HTTP interface (apart from the introspection endpoint), but just a
- cron-scheduled Lambda. So it works automatically.
+ cron-scheduled Lambda. So it is triggered automatically.
 
 
 Architecture
 ============
 The main Lambda function is triggered by a cron schedule in Event Bridge, CloudWatch:
-  - cron(10 19 ? * MON *) # Every Monday at 19:10 UTC (20:10/21:10AM in Rome winter/summer).
-  - cron(10 19 ? * WED *) # Every Wednesday at 19:10 UTC (20:10/21:10AM in Rome winter/summer).
+  - cron(5 19 ? * MON *) # Every Monday at 19:05 UTC (20:05/21:05AM in Rome winter/summer).
+  - cron(5 19 ? * SAT *) # Every Saturday at 19:05 UTC (20:05/21:05AM in Rome winter/summer).
 These times work with the business rules explained in `How it works`.
 
 To send Telegram messages, we use Botte (part of the Patatrack monorepo) via HTTP.
@@ -37,8 +38,8 @@ I inspected these requests by installing the app on the emulator Genymotion on m
 Find the details of these requests in the next sections.
 
 Some business rules are in place in order to regulate bookings:
- - booking for Wednesday 20:00 classes opens the previous Monday at 20:00
- - booking for Friday 20:00 classes opens the previous Wednesday at 20:00\
+ - booking for Monday 20:00 classes opens the previous Saturday at 20:00
+ - booking for Wednesday 20:00 classes opens the previous Monday at 20:00\
 So these times are the cron schedule.
 
 1' request: login
@@ -201,7 +202,7 @@ $ curl -X POST https://reborn.shaggyowl.com/funzioniapp/v407/loginApp \
 2' request: get palinsesto
 --------------------------
 Get the `id_orario_palinsesto` for the class you are interested.
-You might skip this if you already know it and of it does not change over time.
+You might skip this if you already know it and if it does not change over time.
 ```sh
 $ curl -X POST https://reborn.shaggyowl.com/funzioniapp/v407/palinsesti \
    -d 'id_sede=47&codice_sessione=172978952xxx&giorno=2024-10-25'
@@ -459,19 +460,6 @@ Deployment
 
 ---
 
-### 0. Create API in Strava
-
-To get API keys you need to create and API App in Strava.\
-Note that you can create only 1 app.\
-Go to: [https://www.strava.com/settings/api]()
-and create a new API.\
-Take note of the `client_id` and `client_secret`.\
-The script `scripts/configure_parameter_store.py` that you will run in a later step
- will guide you to get a valid access token.\
-Also note that the access token in that page ("Your Access Token") is NOT what you need
- here because it has a read-only scope.\
-See screenshot:
-![Strava app](docs/img/3.png "Strava app")
 
 ### 1. Install deployment requirements
 

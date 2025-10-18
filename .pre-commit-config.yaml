@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pycqa/isort
-    rev: 5.13.2  # Must be the same in every project and lib's pyproject.toml.
+    rev: 7.0.0  # Must be the same in every project and lib's pyproject.toml.
     hooks:
       # Libraries: none yet.
       # Projects.
@@ -8,12 +8,12 @@ repos:
         files: '^(reborn_automator|tests)/'
         types: [file, python]
   - repo: https://github.com/python/black
-    rev: 24.10.0  # Must be the same in every project and lib's pyproject.toml.
+    rev: 25.9.0  # Must be the same in every project and lib's pyproject.toml.
     hooks:
       # Libraries: none yet.
       # Projects.
       - id: black
-        language_version: python3.12
+        language_version: python3.13
         files: '^(reborn_automator|tests)/'
         types: [file, python]
 
