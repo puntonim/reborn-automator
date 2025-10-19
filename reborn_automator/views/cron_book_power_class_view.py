@@ -24,13 +24,13 @@ from ..utils.log_utils import logger
 # The Lambda is configured with 0 retries. So do raise exceptions in the view.
 
 
-logger.info("CRON BOOK CALI CLASS: LOADING")
+logger.info("CRON BOOK POWER CLASS: LOADING")
 
 
 @logger.inject_lambda_context(log_event=True)
 def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
     """
-    Book the next **calisthenics** class at Reborn.
+    Book the next **powerlifting** class at Reborn.
 
     Args:
         event: an AWS event, eg. CloudWatch Scheduled Event.
@@ -65,7 +65,7 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
         }
     More info here: https://docs.aws.amazon.com/lambda/latest/dg/python-context.html
     """
-    logger.info("CRON BOOK CALI CLASS: START")
+    logger.info("CRON BOOK POWER CLASS: START")
 
     # Note: there is no class in aws_lambda_powertools that represents CloudWatch
     #  Scheduled Event.
@@ -75,7 +75,7 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
     response = None
     day_date = None
     try:
-        response, day_date = domain.book_next_calisthenics_class()
+        response, day_date = domain.book_next_powerlifting_class()
     except (FailedBooking, NoClassFoundInPalinsesto) as exc:
         exception = exc
     except Exception as exc:
@@ -89,7 +89,7 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
         botte.send_telegram_message(
             emoji_utils.MUSCLE
             + emoji_utils.GREEN_CIRCLE
-            + "Calisthenics class booked for "
+            + "Powerlifting class booked for "
             + day_date.strftime("%Y-%m-%d")
         )
 
@@ -108,7 +108,7 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
             message += (
                 # Botte only supports plain text now, so no formatting like:
                 #  '\n<pre><code class="language-json">\n'
-                f"Calisthenics class NOT booked for {day_date}\n\n{exc_str}"
+                f"Powerlifting class NOT booked for {day_date}\n\n{exc_str}"
             )
 
         logger.info("Booking error", extra=extra)

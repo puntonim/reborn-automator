@@ -66,6 +66,11 @@ deploy:
 	sls deploy
 
 
+.PHONY : deploy-remove
+deploy-remove:
+	sls remove
+
+
 .PHONY : test
 test:
 	poetry run pytest -s tests/ -v -n auto --durations=5

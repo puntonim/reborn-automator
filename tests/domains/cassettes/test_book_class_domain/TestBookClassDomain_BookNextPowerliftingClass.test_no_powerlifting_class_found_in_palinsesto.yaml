@@ -1,0 +1,1225 @@
+interactions:
+- request:
+    body: mail=**REDACTED**&pass=**REDACTED**
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '41'
+      Content-Type:
+      - application/x-www-form-urlencoded
+    method: POST
+    uri: https://reborn.shaggyowl.com/funzioniapp/v407/loginApp
+  response:
+    body:
+      string: '{"status": 2, "messaggio": "Accesso effettuato con successo.", "parametri":
+        {"sessione": {"isFacebook": 0, "idFacebook": "", "isGoogle": 0, "idGoogle":
+        "", "idSede": "", "idCliente": "**REDACTED**", "statoCliente": "", "nomeCliente":
+        "**REDACTED**", "cognomeCliente": "", "mail": "**REDACTED**", "pass": "",
+        "codice_sessione": "**REDACTED**", "path_img": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_clienti/152_152/1749496076-362842220.jpeg",
+        "path_img_big": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_clienti/1749496076-362842220.jpeg",
+        "sede": "{}", "cliente": {}}, "sedi_collegate": [{"nome": "Reborn", "id_sede":
+        "47", "codice": "jkdGu3stmetropreborn", "path_img": "image-picker-0e310cc0-cdc8-49cf-a514-83d17b522f77-1397-0000016136ebe886-1829569936.png",
+        "path_img_list": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_sedi/152_152/image-picker-0e310cc0-cdc8-49cf-a514-83d17b522f77-1397-0000016136ebe886-1829569936.png",
+        "path_img_big": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_sedi/image-picker-0e310cc0-cdc8-49cf-a514-83d17b522f77-1397-0000016136ebe886-1829569936.png",
+        "path_img_inner": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_sedi/250_640/image-picker-0e310cc0-cdc8-49cf-a514-83d17b522f77-1397-0000016136ebe886-1829569936.png",
+        "active": 1, "comune": "Torre Boldone", "telefono": "3336286549", "web": "http://www.youreborn.it/",
+        "mail": "info@youreborn.it", "facebook": "https://www.facebook.com/yourebornofficial/",
+        "twitter": "", "google": "", "instagram": "https://www.instagram.com/yourebornofficial/?hl=it",
+        "testo": "<h6><span style=\"font-weight: normal;\"><span style=\"font-size:
+        12px;\"><i>Palestra funzionale presente sul territorio bergamasco dal 2011.<br></i></span><span
+        style=\"font-size: 12px;\"><i>La nostra forza sono l\u2019elasticit\u00e0
+        e la professionalit\u00e0. Lavoriamo con il cliente per essere sicuri di raggiungere
+        ogni obiettivo, piccolo o grande che sia.</i></span></span></h6>", "distance":
+        "", "indirizzo_completo": "Torre Boldone, Largo delle Industrie 9, 24020 Bergamo,
+        LOMBARDIA", "lat": "45.7096864", "lon": "9.7141489", "listaPagine": ["home_utente_crossfit",
+        "palinsesto", "wod", "info_cliente"], "id_stato_lavorazione": "3", "lista_utenti":
+        [], "impostazioni_sede": {"on_boarding": {"on_boarding_attivo": "2", "on_boarding_clienti_prova":
+        null, "carta_di_credito_obbligatoria": "1", "on_boarding_sezioni": [{"key":
+        "dati_utente", "campi_obbligatori": ["1", "2", "7", "8", "9", "12", "29"],
+        "tipologie": []}, {"key": "documenti", "campi_obbligatori": [], "tipologie":
+        ["attestati_medici"]}, {"key": "regolamenti", "campi_obbligatori": ["regolamento"],
+        "tipologie": []}]}, "sezioni_da_nascondere_titolare": ["servizi", "prenotazioni_campi",
+        "shop", "multimedia", "disponibilita", "schede", "Multimedia"], "sezioni_da_nascondere":
+        ["servizi", "prenotazioni_campi", "shop", "multimedia", "disponibilita", "schede",
+        "Multimedia"], "impostazioni_abbonamenti": "", "struttura_multimedia": [],
+        "filtri_staff_disponibilita": null, "compenso_staff_ore_no_preno": "2", "compenso_corsi_non_prenotabili":
+        "1", "mostra_priorita": "1", "is_banner_shop_visibile": "1", "is_banner_crm_visibile":
+        "1", "impostazioni_personalizzazione_app": {"primary_color_light": "#4d6fb2",
+        "primary_color_dark": "#4d6fb2", "theme_mode": "both", "bottom_bar": ["home_utente_crossfit",
+        "palinsesto", "wod", "info_cliente"], "placeholder_pers_list": "", "bottom_bar_style":
+        "Stile 1", "bottom_bar_fab": "servizi", "nascondere_numero_di_prenotati":
+        "1", "permetti_modifica_livello": "1", "livelli": [{"id": "0", "nome": "Nessuno"},
+        {"id": "1", "nome": "Base"}, {"id": "2", "nome": "Base-Intermedio"}, {"id":
+        "3", "nome": "Intermedio"}, {"id": "4", "nome": "Intermedio-Avanzato"}, {"id":
+        "5", "nome": "Avanzato"}], "etichette": [{"id": "home_utente_crossfit", "nome":
+        "Home"}, {"id": "sede", "nome": "Centro"}, {"id": "centro", "nome": "Centro"},
+        {"id": "palinsesto", "nome": "Palinsesto"}, {"id": "disponibilita", "nome":
+        "Personal"}, {"id": "disponibilita_stanze", "nome": "Postazioni"}, {"id":
+        "wod", "nome": "WOD"}, {"id": "info_cliente", "nome": "Le tue info"}, {"id":
+        "abbonamenti", "nome": "Abbonamenti"}, {"id": "sessioni", "nome": "Sessioni"},
+        {"id": "wod_log", "nome": "Wod Log"}, {"id": "classifiche", "nome": "Classifiche"},
+        {"id": "massimali", "nome": "Massimali"}, {"id": "post", "nome": "Post"},
+        {"id": "promozioni", "nome": "Promozioni"}, {"id": "corsi", "nome": "Corsi"},
+        {"id": "eventi", "nome": "Eventi"}, {"id": "staff", "nome": "Staff"}, {"id":
+        "foto", "nome": "Foto"}, {"id": "video", "nome": "Video"}, {"id": "avvisi",
+        "nome": "Avvisi"}, {"id": "iscrizioni", "nome": "Iscrizioni"}, {"id": "prenotazioni_campi",
+        "nome": "Prenotazioni campo"}, {"id": "schede", "nome": "Schede"}, {"id":
+        "acquisti", "nome": "Acquisti"}, {"id": "timer", "nome": "Timer"}, {"id":
+        "Multimedia", "nome": "Multimedia"}, {"id": "servizi", "nome": "Servizi"},
+        {"id": "messaggi", "nome": "Messaggi"}, {"id": "shop", "nome": "Shop"}, {"id":
+        "prenotazioni", "nome": "Prenotazioni"}, {"id": "logout", "nome": "Log out"}],
+        "font": "Poppins"}, "acas": "0", "nlpp": "0", "compenso_clienti_prova_lead":
+        "1"}, "myapp": "2", "indirizzo_android": "https://play.google.com/store/apps/details?id=com.shaggyowl.reborn&hl=it&gl=US",
+        "indirizzo_ios": "https://apps.apple.com/it/app/youreborn/id1398754364"}]}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Sun, 19 Oct 2025 09:46:11 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-XSS-Protection:
+      - 1; mode=block
+      content-length:
+      - '5092'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: id_sede=47&codice_sessione=**REDACTED**
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '47'
+      Content-Type:
+      - application/x-www-form-urlencoded
+    method: POST
+    uri: https://reborn.shaggyowl.com/funzioniapp/v407/palinsesti
+  response:
+    body:
+      string: '{"status": 2, "messaggio": "Tutto bene", "parametri": {"lista_risultati":
+        [{"id_palinsesti": "47", "nome_palinsesto": "Lezioni Collettive", "visibile":
+        "2", "principale": "2", "tipo": "palinsesto", "idclienti": "", "id_cliente":
+        "0", "is_all_visible": "2", "note": "", "idclienti_array": [], "tagsc": [],
+        "tagsc_value": "", "tagsa": [], "tagsa_value": "", "giorni": [{"orari_giorno":
+        [{"id_orario_palinsesto": "884489", "is_online": "1", "no_greenpass": "1",
+        "a_crediti": "1", "crediti": "0", "orario_inizio": "10:00", "orario_fine":
+        "11:30", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Reborn
+        4 Women", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#FF00B5", "prezzo": "0.00", "path_img_corso": "", "path_img_list_corso":
+        "", "path_img_inner_corso": "", "path_img_big_corso": "", "path_img_small_corso":
+        "", "staff": {"principali": [{"id_staff": "1649", "nome": "Maria Luisa Bottini",
+        "color": "#a000ff", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Maria Luisa Bottini",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "6", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "14", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Prenotazioni chiuse",
+        "prenota_coda": "2"}}], "nome_giorno": "Domenica 19/10/2025", "giorno": "2025-10-19"},
+        {"orari_giorno": [{"id_orario_palinsesto": "882817", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "05:50", "orario_fine":
+        "21:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Open
+        Gym", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#ffffff", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/3-1546420903.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/3-1546420903.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/3-1546420903.png",
+        "staff": null, "nome_staff": "", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "1", "nota": "", "utente_prenotato":
+        "0", "frase": "20 posti disponibili", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850486", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "06:00", "orario_fine": "07:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "16", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "4", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "16 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "850577", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "07:00",
+        "orario_fine": "08:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Functional Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "19", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "1", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "19 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "850578", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "09:00",
+        "orario_fine": "10:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Body Fit", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#800080", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/8-1862726996.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/8-1862726996.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/8-1862726996.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "11", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "1", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "11 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "882889", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "10:00",
+        "orario_fine": "11:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Functional Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "18", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "2", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "18 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "850579", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "13:00",
+        "orario_fine": "14:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Functional Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "18", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "2", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "18 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "887166", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "17:00",
+        "orario_fine": "18:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Functional Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1651", "nome": "Carlo Papalia", "color":
+        "#fff700", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Carlo Papalia", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "17", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "3", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "17 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "887167", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "18:00",
+        "orario_fine": "19:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Functional Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1651", "nome": "Carlo Papalia", "color":
+        "#fff700", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Carlo Papalia", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "18", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "2", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "18 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "876884", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "18:30",
+        "orario_fine": "20:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Pesistica Olimpica", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#808080", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/2-1974704237.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/2-1974704237.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/2-1974704237.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/2-1974704237.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/2-1974704237.png",
+        "staff": {"principali": [{"id_staff": "1654", "nome": "Matteo Artina", "color":
+        "#0084ff", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Matteo Artina", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "9", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "1", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "9 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "895182", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "19:00",
+        "orario_fine": "20:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Functional Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1649", "nome": "Maria Luisa Bottini",
+        "color": "#a000ff", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Maria Luisa Bottini",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "9", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "5", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "9 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "885268", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "19:00",
+        "orario_fine": "20:30", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "CCS", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#ff9900", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/9-2073064566.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/9-2073064566.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/9-2073064566.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/9-2073064566.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/9-2073064566.png",
+        "staff": {"principali": [{"id_staff": "1835", "nome": "Andrea Da Col", "color":
+        "#ff0000", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Andrea Da Col", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "9", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "1", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "9 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "850583", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "19:00",
+        "orario_fine": "20:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Body Fit", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#800080", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/8-1862726996.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/8-1862726996.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/8-1862726996.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "17", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "1", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "17 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "877296", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "20:00",
+        "orario_fine": "21:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Aerobic Capacity", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#339966", "prezzo": "0.00", "path_img_corso": "", "path_img_list_corso":
+        "", "path_img_inner_corso": "", "path_img_big_corso": "", "path_img_small_corso":
+        "", "staff": {"principali": [{"id_staff": "1649", "nome": "Maria Luisa Bottini",
+        "color": "#a000ff", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Maria Luisa Bottini",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "13", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "7", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "12992611", "frase": "Sei prenotato per
+        questo orario (7 p.)", "prenota_coda": "2"}}, {"id_orario_palinsesto": "876885",
+        "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio":
+        "20:00", "orario_fine": "21:00", "via": "", "lat": "", "lon": "", "nota":
+        "", "nome_corso": "Calisthenics", "prenotabile_corso": "2", "iscrizioni":
+        "2", "ingressi_corso": "1", "color_corso": "#ff0000", "prezzo": "0.00", "path_img_corso":
+        "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/4-393962289.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/4-393962289.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/4-393962289.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/4-393962289.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/4-393962289.png",
+        "staff": {"principali": [{"id_staff": "1654", "nome": "Matteo Artina", "color":
+        "#0084ff", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Matteo Artina", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "11", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "4", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "11 posti disponibili",
+        "prenota_coda": "2"}}], "nome_giorno": "Luned\u00ec 20/10/2025", "giorno":
+        "2025-10-20"}, {"orari_giorno": [{"id_orario_palinsesto": "882818", "is_online":
+        "1", "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio":
+        "05:50", "orario_fine": "21:00", "via": "", "lat": "", "lon": "", "nota":
+        "", "nome_corso": "Open Gym", "prenotabile_corso": "2", "iscrizioni": "2",
+        "ingressi_corso": "1", "color_corso": "#ffffff", "prezzo": "0.00", "path_img_corso":
+        "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/3-1546420903.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/3-1546420903.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/3-1546420903.png",
+        "staff": null, "nome_staff": "", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "1", "nota": "", "utente_prenotato":
+        "0", "frase": "20 posti disponibili", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850499", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "06:00", "orario_fine": "07:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1650", "nome": "Julien Colombo", "color":
+        "#ff9200", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Julien Colombo", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "19", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "1", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "19 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "865622", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "07:00",
+        "orario_fine": "08:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Functional Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1650", "nome": "Julien Colombo", "color":
+        "#ff9200", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Julien Colombo", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "20 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "876843", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "09:00",
+        "orario_fine": "10:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Forever Young", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#ffffff", "prezzo": "0.00", "path_img_corso": "", "path_img_list_corso":
+        "", "path_img_inner_corso": "", "path_img_big_corso": "", "path_img_small_corso":
+        "", "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "20 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "882815", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "10:00",
+        "orario_fine": "11:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Body Fit", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#800080", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/8-1862726996.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/8-1862726996.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/8-1862726996.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "1", "nota": "", "utente_prenotato": "0", "frase": "20 posti disponibili",
+        "prenota_coda": "2"}}, {"id_orario_palinsesto": "850589", "is_online": "1",
+        "no_greenpass": "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "13:00",
+        "orario_fine": "14:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso":
+        "Functional Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 19-10-2025 alle 13:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "895167", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "17:00", "orario_fine": "18:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 19-10-2025 alle 17:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "876783", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "18:00", "orario_fine": "19:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Mobility & Core", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#ffff00", "prezzo":
+        "0.00", "path_img_corso": "", "path_img_list_corso": "", "path_img_inner_corso":
+        "", "path_img_big_corso": "", "path_img_small_corso": "", "staff": {"principali":
+        [{"id_staff": "1651", "nome": "Carlo Papalia", "color": "#fff700", "path_img":
+        null, "path_img_list": "", "path_img_big": "", "path_img_small": ""}], "secondari":
+        []}, "nome_staff": "Carlo Papalia", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "13", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "1", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 19-10-2025 alle 18:00", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "887466", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "18:00", "orario_fine":
+        "19:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Functional
+        Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1649", "nome": "Maria Luisa Bottini",
+        "color": "#a000ff", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Maria Luisa Bottini",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "13", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "1", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 19-10-2025 alle 18:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "876831", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "19:00", "orario_fine": "20:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Gymnastics", "prenotabile_corso": "2",
+        "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#39D3FA", "prezzo":
+        "0.00", "path_img_corso": "", "path_img_list_corso": "", "path_img_inner_corso":
+        "", "path_img_big_corso": "", "path_img_small_corso": "", "staff": {"principali":
+        [{"id_staff": "1649", "nome": "Maria Luisa Bottini", "color": "#a000ff", "path_img":
+        null, "path_img_list": "", "path_img_big": "", "path_img_small": ""}], "secondari":
+        []}, "nome_staff": "Maria Luisa Bottini", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 19-10-2025 alle 19:00", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "876803", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "19:00", "orario_fine":
+        "20:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Powerlifting",
+        "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso":
+        "#000000", "prezzo": "0.00", "path_img_corso": "", "path_img_list_corso":
+        "", "path_img_inner_corso": "", "path_img_big_corso": "", "path_img_small_corso":
+        "", "staff": {"principali": [{"id_staff": "1651", "nome": "Carlo Papalia",
+        "color": "#fff700", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Carlo Papalia",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "16", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 19-10-2025 alle 19:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850594", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "19:00", "orario_fine": "20:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Body Fit", "prenotabile_corso": "2",
+        "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#800080", "prezzo":
+        "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/8-1862726996.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/8-1862726996.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/8-1862726996.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 19-10-2025 alle 19:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850563", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "19:00", "orario_fine": "20:30", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "CCS", "prenotabile_corso": "2", "iscrizioni":
+        "2", "ingressi_corso": "1", "color_corso": "#ff9900", "prezzo": "0.00", "path_img_corso":
+        "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/9-2073064566.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/9-2073064566.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/9-2073064566.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/9-2073064566.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/9-2073064566.png",
+        "staff": {"principali": [{"id_staff": "1835", "nome": "Andrea Da Col", "color":
+        "#ff0000", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Andrea Da Col", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "10", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 19-10-2025 alle 19:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "876786", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "20:00", "orario_fine": "21:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1651", "nome": "Carlo Papalia", "color":
+        "#fff700", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Carlo Papalia", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 19-10-2025 alle 20:00", "prenota_coda": "2"}}], "nome_giorno": "Marted\u00ec
+        21/10/2025", "giorno": "2025-10-21"}, {"orari_giorno": [{"id_orario_palinsesto":
+        "882819", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "05:50", "orario_fine": "21:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Open Gym", "prenotabile_corso": "2",
+        "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#ffffff", "prezzo":
+        "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/3-1546420903.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/3-1546420903.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/3-1546420903.png",
+        "staff": null, "nome_staff": "", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 20-10-2025 alle 05:50", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "895484", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "06:00", "orario_fine":
+        "07:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Functional
+        Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 20-10-2025 alle 06:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850597", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "07:00", "orario_fine": "08:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 20-10-2025 alle 07:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850598", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "09:00", "orario_fine": "10:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Body Fit", "prenotabile_corso": "2",
+        "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#800080", "prezzo":
+        "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/8-1862726996.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/8-1862726996.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/8-1862726996.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "12", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 20-10-2025 alle 09:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "887759", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "13:00", "orario_fine": "14:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 20-10-2025 alle 13:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "895452", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "17:00", "orario_fine": "18:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 20-10-2025 alle 17:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "876854", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "18:00", "orario_fine": "19:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "19", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "1", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 20-10-2025 alle 18:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "892905", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "18:30", "orario_fine": "20:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Pesistica Olimpica", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#808080", "prezzo":
+        "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/2-1974704237.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/2-1974704237.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/2-1974704237.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/2-1974704237.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/2-1974704237.png",
+        "staff": {"principali": [{"id_staff": "1654", "nome": "Matteo Artina", "color":
+        "#0084ff", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Matteo Artina", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "10", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 20-10-2025 alle 18:30", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850602", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "19:00", "orario_fine": "20:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Body Fit", "prenotabile_corso": "2",
+        "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#800080", "prezzo":
+        "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/8-1862726996.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/8-1862726996.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/8-1862726996.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "16", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 20-10-2025 alle 19:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "884862", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "20:00", "orario_fine": "21:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Calisthenics", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#ff0000", "prezzo":
+        "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/4-393962289.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/4-393962289.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/4-393962289.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/4-393962289.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/4-393962289.png",
+        "staff": {"principali": [{"id_staff": "1654", "nome": "Matteo Artina", "color":
+        "#0084ff", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Matteo Artina", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 20-10-2025 alle 20:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850604", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "20:00", "orario_fine": "21:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Aerobic Capacity", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#339966", "prezzo":
+        "0.00", "path_img_corso": "", "path_img_list_corso": "", "path_img_inner_corso":
+        "", "path_img_big_corso": "", "path_img_small_corso": "", "staff": {"principali":
+        [{"id_staff": "1649", "nome": "Maria Luisa Bottini", "color": "#a000ff", "path_img":
+        null, "path_img_list": "", "path_img_big": "", "path_img_small": ""}], "secondari":
+        []}, "nome_staff": "Maria Luisa Bottini", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 20-10-2025 alle 20:00", "prenota_coda":
+        "2"}}], "nome_giorno": "Mercoled\u00ec 22/10/2025", "giorno": "2025-10-22"},
+        {"orari_giorno": [{"id_orario_palinsesto": "882820", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "05:50", "orario_fine":
+        "21:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Open
+        Gym", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#ffffff", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/3-1546420903.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/3-1546420903.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/3-1546420903.png",
+        "staff": null, "nome_staff": "", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 21-10-2025 alle 05:50", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "850522", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "06:00", "orario_fine":
+        "07:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Functional
+        Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1649", "nome": "Maria Luisa Bottini",
+        "color": "#a000ff", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Maria Luisa Bottini",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 06:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "865624", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "07:00", "orario_fine": "08:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1649", "nome": "Maria Luisa Bottini",
+        "color": "#a000ff", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Maria Luisa Bottini",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 07:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "883453", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "09:00", "orario_fine": "10:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Body Fit", "prenotabile_corso": "2",
+        "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#800080", "prezzo":
+        "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/8-1862726996.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/8-1862726996.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/8-1862726996.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 09:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "893034", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "10:00", "orario_fine": "11:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 10:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850607", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "13:00", "orario_fine": "14:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 13:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "895840", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "17:00", "orario_fine": "18:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 17:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "895704", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "18:00", "orario_fine": "19:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Mobility & Core", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#ffff00", "prezzo":
+        "0.00", "path_img_corso": "", "path_img_list_corso": "", "path_img_inner_corso":
+        "", "path_img_big_corso": "", "path_img_small_corso": "", "staff": {"principali":
+        [{"id_staff": "1651", "nome": "Carlo Papalia", "color": "#fff700", "path_img":
+        null, "path_img_list": "", "path_img_big": "", "path_img_small": ""}], "secondari":
+        []}, "nome_staff": "Carlo Papalia", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 21-10-2025 alle 18:00", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "895842", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "18:00", "orario_fine":
+        "19:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Functional
+        Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "19", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "1", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 18:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "890769", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "19:00", "orario_fine": "20:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Powerlifting", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#000000", "prezzo":
+        "0.00", "path_img_corso": "", "path_img_list_corso": "", "path_img_inner_corso":
+        "", "path_img_big_corso": "", "path_img_small_corso": "", "staff": {"principali":
+        [{"id_staff": "1651", "nome": "Carlo Papalia", "color": "#fff700", "path_img":
+        null, "path_img_list": "", "path_img_big": "", "path_img_small": ""}], "secondari":
+        []}, "nome_staff": "Carlo Papalia", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "16", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 21-10-2025 alle 19:00", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "876832", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "19:00", "orario_fine":
+        "20:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Gymnastics",
+        "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso":
+        "#39D3FA", "prezzo": "0.00", "path_img_corso": "", "path_img_list_corso":
+        "", "path_img_inner_corso": "", "path_img_big_corso": "", "path_img_small_corso":
+        "", "staff": {"principali": [{"id_staff": "1649", "nome": "Maria Luisa Bottini",
+        "color": "#a000ff", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Maria Luisa Bottini",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 19:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850610", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "19:00", "orario_fine": "20:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Body Fit", "prenotabile_corso": "2",
+        "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#800080", "prezzo":
+        "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/8-1862726996.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/8-1862726996.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/8-1862726996.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "16", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 19:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "850564", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "19:00", "orario_fine": "20:30", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "CCS", "prenotabile_corso": "2", "iscrizioni":
+        "2", "ingressi_corso": "1", "color_corso": "#ff9900", "prezzo": "0.00", "path_img_corso":
+        "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/9-2073064566.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/9-2073064566.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/9-2073064566.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/9-2073064566.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/9-2073064566.png",
+        "staff": {"principali": [{"id_staff": "1835", "nome": "Andrea Da Col", "color":
+        "#ff0000", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Andrea Da Col", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "10", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 19:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "890572", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "20:00", "orario_fine": "21:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1651", "nome": "Carlo Papalia", "color":
+        "#fff700", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Carlo Papalia", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 21-10-2025 alle 20:00", "prenota_coda": "2"}}], "nome_giorno": "Gioved\u00ec
+        23/10/2025", "giorno": "2025-10-23"}, {"orari_giorno": [{"id_orario_palinsesto":
+        "882823", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "05:50", "orario_fine": "21:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Open Gym", "prenotabile_corso": "2",
+        "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#ffffff", "prezzo":
+        "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/3-1546420903.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/3-1546420903.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/3-1546420903.png",
+        "staff": null, "nome_staff": "", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 22-10-2025 alle 05:50", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "850532", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "06:00", "orario_fine":
+        "07:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Functional
+        Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1650", "nome": "Julien Colombo", "color":
+        "#ff9200", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Julien Colombo", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 22-10-2025 alle 06:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "865626", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "07:00", "orario_fine": "08:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1650", "nome": "Julien Colombo", "color":
+        "#ff9200", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Julien Colombo", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 22-10-2025 alle 07:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "882908", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "09:00", "orario_fine": "10:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Forever Young", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#ffffff", "prezzo":
+        "0.00", "path_img_corso": "", "path_img_list_corso": "", "path_img_inner_corso":
+        "", "path_img_big_corso": "", "path_img_small_corso": "", "staff": {"principali":
+        [{"id_staff": "505", "nome": "Piero Lozza", "color": "#804400", "path_img":
+        null, "path_img_list": "", "path_img_big": "", "path_img_small": ""}], "secondari":
+        []}, "nome_staff": "Piero Lozza", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 22-10-2025 alle 09:00", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "850615", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "13:00", "orario_fine":
+        "14:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Functional
+        Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 22-10-2025 alle 13:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "881585", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "17:00", "orario_fine": "18:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1649", "nome": "Maria Luisa Bottini",
+        "color": "#a000ff", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Maria Luisa Bottini",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 22-10-2025 alle 17:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "876818", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "18:00", "orario_fine": "19:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Functional Fitness", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#164FD5", "prezzo":
+        "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "1649", "nome": "Maria Luisa Bottini",
+        "color": "#a000ff", "path_img": null, "path_img_list": "", "path_img_big":
+        "", "path_img_small": ""}], "secondari": []}, "nome_staff": "Maria Luisa Bottini",
+        "nome_staff_secondario": "", "nome_stanza": "", "nome_campo": "", "blocco_coda":
+        0, "multimedia": "1", "prenotazioni": {"numero_posti_disponibili": "12", "numero_utenti_coda":
+        "0", "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 22-10-2025 alle 18:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "896405", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "19:00", "orario_fine": "20:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Aerobic Capacity", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#339966", "prezzo":
+        "0.00", "path_img_corso": "", "path_img_list_corso": "", "path_img_inner_corso":
+        "", "path_img_big_corso": "", "path_img_small_corso": "", "staff": {"principali":
+        [{"id_staff": "1649", "nome": "Maria Luisa Bottini", "color": "#a000ff", "path_img":
+        null, "path_img_list": "", "path_img_big": "", "path_img_small": ""}], "secondari":
+        []}, "nome_staff": "Maria Luisa Bottini", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "19", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "1", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 22-10-2025 alle 19:00", "prenota_coda":
+        "2"}}], "nome_giorno": "Venerd\u00ec 24/10/2025", "giorno": "2025-10-24"},
+        {"orari_giorno": [{"id_orario_palinsesto": "850619", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "09:00", "orario_fine":
+        "10:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Body
+        Fit", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#800080", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/8-1862726996.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/8-1862726996.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/8-1862726996.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/8-1862726996.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 23-10-2025 alle 09:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "882920", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "10:00", "orario_fine": "11:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Mobility & Core", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#ffff00", "prezzo":
+        "0.00", "path_img_corso": "", "path_img_list_corso": "", "path_img_inner_corso":
+        "", "path_img_big_corso": "", "path_img_small_corso": "", "staff": {"principali":
+        [{"id_staff": "1651", "nome": "Carlo Papalia", "color": "#fff700", "path_img":
+        null, "path_img_list": "", "path_img_big": "", "path_img_small": ""}], "secondari":
+        []}, "nome_staff": "Carlo Papalia", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "16", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 23-10-2025 alle 10:00", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "850620", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "10:00", "orario_fine":
+        "11:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Functional
+        Fitness", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#164FD5", "prezzo": "20.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/6-1170390176.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/6-1170390176.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/6-1170390176.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/6-1170390176.png",
+        "staff": {"principali": [{"id_staff": "505", "nome": "Piero Lozza", "color":
+        "#804400", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Piero Lozza", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "20", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 23-10-2025 alle 10:00", "prenota_coda": "2"}}, {"id_orario_palinsesto":
+        "876874", "is_online": "1", "no_greenpass": "1", "a_crediti": "1", "crediti":
+        "0", "orario_inizio": "11:00", "orario_fine": "12:00", "via": "", "lat": "",
+        "lon": "", "nota": "", "nome_corso": "Powerlifting", "prenotabile_corso":
+        "2", "iscrizioni": "2", "ingressi_corso": "1", "color_corso": "#000000", "prezzo":
+        "0.00", "path_img_corso": "", "path_img_list_corso": "", "path_img_inner_corso":
+        "", "path_img_big_corso": "", "path_img_small_corso": "", "staff": {"principali":
+        [{"id_staff": "1651", "nome": "Carlo Papalia", "color": "#fff700", "path_img":
+        null, "path_img_list": "", "path_img_big": "", "path_img_small": ""}], "secondari":
+        []}, "nome_staff": "Carlo Papalia", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 23-10-2025 alle 11:00", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "877173", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "11:00", "orario_fine":
+        "12:30", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Open
+        Gym", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso": "1",
+        "color_corso": "#ffffff", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/3-1546420903.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/3-1546420903.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/3-1546420903.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/3-1546420903.png",
+        "staff": null, "nome_staff": "", "nome_staff_secondario": "", "nome_stanza":
+        "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1", "prenotazioni":
+        {"numero_posti_disponibili": "20", "numero_utenti_coda": "0", "numero_utenti_attesa":
+        "0", "numero_posti_occupati": "0", "id_disponibilita": "0", "nota": "", "utente_prenotato":
+        "0", "frase": "Le prenotazioni apriranno il 23-10-2025 alle 11:00", "prenota_coda":
+        "2"}}, {"id_orario_palinsesto": "888733", "is_online": "1", "no_greenpass":
+        "1", "a_crediti": "1", "crediti": "0", "orario_inizio": "11:30", "orario_fine":
+        "13:00", "via": "", "lat": "", "lon": "", "nota": "", "nome_corso": "Pesistica
+        Olimpica", "prenotabile_corso": "2", "iscrizioni": "2", "ingressi_corso":
+        "1", "color_corso": "#808080", "prezzo": "0.00", "path_img_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/2-1974704237.png",
+        "path_img_list_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/152_152/2-1974704237.png",
+        "path_img_inner_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/250_640/2-1974704237.png",
+        "path_img_big_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/2-1974704237.png",
+        "path_img_small_corso": "https://storage.shaggyowl.com/myapp/immagini/img_rappr_corsi/0/small/2-1974704237.png",
+        "staff": {"principali": [{"id_staff": "1654", "nome": "Matteo Artina", "color":
+        "#0084ff", "path_img": null, "path_img_list": "", "path_img_big": "", "path_img_small":
+        ""}], "secondari": []}, "nome_staff": "Matteo Artina", "nome_staff_secondario":
+        "", "nome_stanza": "", "nome_campo": "", "blocco_coda": 0, "multimedia": "1",
+        "prenotazioni": {"numero_posti_disponibili": "10", "numero_utenti_coda": "0",
+        "numero_utenti_attesa": "0", "numero_posti_occupati": "0", "id_disponibilita":
+        "0", "nota": "", "utente_prenotato": "0", "frase": "Le prenotazioni apriranno
+        il 23-10-2025 alle 11:30", "prenota_coda": "2"}}], "nome_giorno": "Sabato
+        25/10/2025", "giorno": "2025-10-25"}]}]}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - close
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '90967'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Sun, 19 Oct 2025 09:46:11 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

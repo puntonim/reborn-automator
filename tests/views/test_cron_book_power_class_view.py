@@ -13,13 +13,13 @@ from reborn_automator.utils.testutils.aws_testfactories.cloudwatch_event_factory
 from reborn_automator.utils.testutils.aws_testfactories.lambda_context_factory import (
     LambdaContextFactory,
 )
-from reborn_automator.views.cron_book_cali_class_view import lambda_handler
+from reborn_automator.views.cron_book_power_class_view import lambda_handler
 
-frozen_date1 = datetime(2024, 10, 25, 11, 0, 0).astimezone()
+frozen_date1 = datetime(2025, 10, 19, 11, 0, 0).astimezone()
 frozen_date2 = datetime(2025, 4, 15, 12, 0, 0).astimezone()
 
 
-class TestCronBookCaliClassView:
+class TestCronBookPowerClassView:
     def setup_method(self):
         self.context = LambdaContextFactory().make()
 
@@ -31,19 +31,19 @@ class TestCronBookCaliClassView:
             self.context,
         )
 
-    @datetime_testutils.freeze_time(frozen_date1 + timedelta(days=5))
-    def test_no_calisthenics_class_found_in_palinsesto(self):
+    @datetime_testutils.freeze_time(frozen_date1 + timedelta(days=7))
+    def test_no_powerlifting_class_found_in_palinsesto(self):
         with pytest.raises(NoClassFoundInPalinsesto) as exc:
             lambda_handler(
                 CloudWatchEventFactory.make_for_scheduled_event(),
                 self.context,
             )
-        assert exc.value.class_name == "Calisthenics"
+        assert exc.value.class_name == "Powerlifting"
 
-    @datetime_testutils.freeze_time(frozen_date2)
+    @datetime_testutils.freeze_time(frozen_date1)
     def test_no_active_subscription(self):
-        # Note: I recorded this cassette when my subscription was over, so the
-        #  response is legit and original.
+        # Note: I built the response copying the original one recorder
+        #  with the cali class.
         with pytest.raises(FailedBooking):
             lambda_handler(
                 CloudWatchEventFactory.make_for_scheduled_event(),

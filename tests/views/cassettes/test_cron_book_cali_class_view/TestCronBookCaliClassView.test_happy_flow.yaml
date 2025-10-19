@@ -1120,7 +1120,7 @@ interactions:
     uri: https://reborn.shaggyowl.com/funzioniapp/v407/prenotazione_new
   response:
     body:
-      string: '{"status": 2, "messaggio": "nimiq - non so bene cosa risponde qui",
+      string: '{"status": 2, "messaggio": "nimiq - risposta costruita da me, non so bene cosa risponde qui",
         "parametri": {}}'
     headers:
       Access-Control-Allow-Origin:

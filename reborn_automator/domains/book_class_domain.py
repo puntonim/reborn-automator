@@ -1,4 +1,5 @@
 from datetime import date, datetime
+from enum import StrEnum
 from functools import lru_cache
 
 from ..clients.reborn_api_client import RebornApiClient
@@ -7,9 +8,15 @@ from ..utils import datetime_utils
 from ..utils.log_utils import logger
 
 
+class ClassNameEnum(StrEnum):
+    CALI = "Calisthenics"
+    POWER = "Powerlifting"
+
+
 class BookClassDomain:
-    def __init__(self):
+    def __init__(self, sede_id: int = 47):
         self.client = RebornApiClient()
+        self.sede_id = sede_id
 
     @lru_cache
     def _login(self):
@@ -17,7 +24,15 @@ class BookClassDomain:
             settings.REBORN_CREDS_USERNAME, settings.REBORN_CREDS_PASSWORD
         )
 
-    def get_next_calisthenics_class(self, sede_id: int = 47) -> tuple[int, dict, date]:
+    def get_next_calisthenics_class(self):
+        return self._get_next_class(class_name=ClassNameEnum.CALI)
+
+    def get_next_powerlifting_class(self):
+        return self._get_next_class(class_name=ClassNameEnum.POWER)
+
+    def _get_next_class(
+        self, class_name: str | ClassNameEnum
+    ) -> tuple[int, dict, date]:
         """
         Returns:
             (
@@ -71,9 +86,9 @@ class BookClassDomain:
                 date(2024, 10, 25),
             )
         """
-        logger.debug(f"Getting next Calisthenics class...")
+        logger.debug(f"Getting next {class_name} class...")
         self._login()
-        palinsesto = self.client.get_palinsesto(sede_id)
+        palinsesto = self.client.get_palinsesto(self.sede_id)
 
         # Traverse all results.
         for risultato in palinsesto.get("parametri", {}).get("lista_risultati", []):
@@ -95,31 +110,39 @@ class BookClassDomain:
                 # Traverse all classes.
                 for klass in giorno.get("orari_giorno"):
                     klass: dict
-                    # Make sure it's Calisthenics.
-                    if klass.get("nome_corso") != "Calisthenics":
+                    # Checking the class name.
+                    if klass.get("nome_corso") != class_name:
                         continue
                     # Make sure there is a class id.
                     klass_id = klass.get("id_orario_palinsesto")
                     if klass_id is None:
                         raise MissingIdOrarioPalinsesto(klass)
                     return klass_id, klass, day_date
-        raise NoCalisthenicsClassFoundInPalinsesto
+        raise NoClassFoundInPalinsesto(class_name)
 
-    def book_next_calisthenics_class(self, sede_id: int = 47) -> tuple[dict, date]:
+    def book_next_calisthenics_class(self):
+        return self._book_next_class(ClassNameEnum.CALI)
+
+    def book_next_powerlifting_class(self):
+        return self._book_next_class(ClassNameEnum.POWER)
+
+    def _book_next_class(self, class_name: str | ClassNameEnum) -> tuple[dict, date]:
         """
         Returns:
             {"status": 1, "messaggio": "Prenotazioni non aperte.", "parametri":{}}
         """
-        logger.debug(f"Booking next Calisthenics class...")
+        logger.debug(f"Booking next {class_name} class...")
         self._login()
         try:
-            class_id, _, day_date = self.get_next_calisthenics_class(sede_id)
-        except NoCalisthenicsClassFoundInPalinsesto:
+            class_id, _, day_date = self._get_next_class(class_name)
+        except NoClassFoundInPalinsesto:
             raise
         day_date: date
-        data = self.client.book_class(class_id, day_date)
+        data = self.client.book_class(
+            class_id=class_id, day=day_date, sede_id=self.sede_id
+        )
         if data.get("status") != 2:
-            raise FailedBooking(data, class_id, day_date)
+            raise FailedBooking(data, class_name, class_id, day_date)
         return data, day_date
 
 
@@ -138,11 +161,19 @@ class MissingIdOrarioPalinsesto(BaseBookClassDomainException):
 
 
 class FailedBooking(BaseBookClassDomainException):
-    def __init__(self, response: dict, class_id: int, day_date: date):
+    def __init__(
+        self,
+        response: dict,
+        class_name: str | ClassNameEnum,
+        class_id: int,
+        day_date: date,
+    ):
         self.response = response
+        self.class_name = class_name
         self.class_id = class_id
         self.day_date = day_date
 
 
-class NoCalisthenicsClassFoundInPalinsesto(BaseBookClassDomainException):
-    pass
+class NoClassFoundInPalinsesto(BaseBookClassDomainException):
+    def __init__(self, class_name: str):
+        self.class_name = class_name
