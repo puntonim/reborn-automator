@@ -1,15 +1,17 @@
 import json
 import os
 import re
-from typing import Iterator
+from collections.abc import Iterator
 
 import pytest
 from _pytest.fixtures import SubRequest
 from _pytest.unittest import TestCaseFunction
+from aws_parameter_store_client import aws_parameter_store_client
 from vcr.cassette import Cassette
 from vcr.errors import CannotOverwriteExistingCassetteException
 
-from reborn_automator.conf.settings import settings, test_settings
+from reborn_automator.conf import settings_module
+from reborn_automator.views.views_utils import powertools_logger
 
 IS_VCR_EPISODE_OR_ERROR = True  # False to record new cassettes.
 IS_VCR_ENABLED = True
@@ -19,13 +21,24 @@ def pytest_collection_modifyitems(items: list[TestCaseFunction]):
     """
     Enable vcr for all tests.
     By marking all tests with `vcr`.
-    Unless the test function/class/module is marked with:
-        `@pytest.mark.novcr` for functions and classes
-        `pytestmark = pytest.mark.novcr` for modules.
+
+    Pytest markers:
+        novcr
+            Use this marker to exclude vcr on a function/class/module:
+            `@pytest.mark.novcr` for functions and classes
+            `pytestmark = pytest.mark.novcr` for modules.
+        slow
+            Slow tests are skipped by default. Use this marker for slow tests.
+            Same syntax as documented in `novcr`.
+            Then, to run only the slow tests:
+            $ pytest -m slow tests/
+        withlogs
+            Logging is disabled in tests by default. Use this marker to enable logging.
+            Same syntax as documented in `novcr`.
+            Then, use the test fixture `caplog`.
+            See example in tests/views/test_endpoint_introspection_view.py::test_health.
     """
     for item in items:
-        # Slow tests (@pytest.mark.slow) skipped by default. To run the slow tests:
-        # $ pytest -m slow tests/
         if "slow" in item.keywords and (
             not item.config.getoption("-m") or item.config.getoption("-m") != "slow"
         ):
@@ -41,32 +54,34 @@ def pytest_configure(config):
     config.addinivalue_line("markers", "slow: slow test")
 
 
-@pytest.fixture(autouse=True, scope="function")
-def test_settings_fixture(monkeypatch, request):
-    # Copy all test settings to settings.
-    attr_names = [
-        attr
-        for attr in dir(test_settings)
-        if not callable(getattr(test_settings, attr)) and not attr.startswith("__")
-    ]
-    for attr_name in attr_names:
-        attr_value = getattr(test_settings, attr_name)
-        setattr(settings, attr_name, attr_value)
+@pytest.fixture(autouse=True, scope="session")
+def test_settings_fixture():
+    settings_module.IS_TEST = True
+
+
+_ORIGINAL_LOG_LEVEL = None
 
 
 @pytest.fixture(autouse=True, scope="function")
-def logging_mock(request):
+def logging_fixture(request):
     """
-    Logging is disabled in tests.
-    In order to enable logging, mark the test function/class/module with:
+    Logging is disabled in tests by default. Use the pytest marker `withlogs` to enable
+    logging. Mark the test function/class/module with:
         `@pytest.mark.withlogs` for functions and classes
         `pytestmark = pytest.mark.withlogs` for modules.
-    Then use the fixture `caplog`.
+    Then, use the fixture `caplog`.
+    See example in tests/views/test_endpoint_introspection_view.py::test_health.
     """
-    if "withlogs" not in request.keywords:
-        from reborn_automator.utils.log_utils import logger
+    global _ORIGINAL_LOG_LEVEL
+    if _ORIGINAL_LOG_LEVEL is None:
+        _ORIGINAL_LOG_LEVEL = powertools_logger.logger.logger_handler.level
 
-        logger.logger_handler.level = 100
+    if "withlogs" in request.keywords:
+        powertools_logger.logger.logger_handler.level = _ORIGINAL_LOG_LEVEL
+        yield
+        return
+    else:
+        powertools_logger.logger.logger_handler.level = 100
         yield
         return
     yield
@@ -106,30 +121,57 @@ def get_match_on() -> tuple:
 
 def before_record_request(request):
     """
-    Redact sensitive information.
+    Use this to redact sensitive info in the REQUEST, when the info is NOT:
+    - NOT a request HTTP header: otherwise you should redact it with `filter_headers`
+       in vcr_config();
+    - NOT a request query param: otherwise you should redact it with
+       `filter_query_parameters` in vcr_config().
     """
-    for i in range(len(request.query)):
-        if "api.telegram.org/bot" in request.uri:
-            request.uri = re.sub(
-                r"api.telegram.org/bot([^/]+)",
-                "api.telegram.org/bot**REDACTED**",
-                request.uri,
-            )
+    # Redact Telegram secret in the url (but it's not a query param).
+    if "api.telegram.org/bot" in request.uri:
+        request.uri = re.sub(
+            r"api.telegram.org/bot([^/]+)",
+            "api.telegram.org/bot**REDACTED**",
+            request.uri,
+        )
+
     return request
 
 
 def before_record_response(response):
     """
-    Redact the access token.
+    Use this to redact sensitive info in the RESPONSE.
+    There is no other way to edit headers or content in the response.
     """
+    # Decode JSON body.
     try:
         data = json.loads(response["body"]["string"].decode())
     except json.JSONDecodeError:
         return response
 
+    if not data:
+        return response
+
+    # Redact access token (general rule).
     if "access_token" in data:
         data["access_token"] = "**REDACTED**"
 
+    # Redact AWS Parameter Store secrets.
+    if isinstance(data, dict):
+        value = data.get("Parameter", {}).get("Value")
+        # Special case: redact the Telegram token, but keep the part before ":" (which is
+        #  the userid) otherwise the telebot lib fails.
+        if (
+            value
+            and data.get("Parameter", {}).get("Name", "").endswith("telegram-token")
+            and ":" in value
+        ):
+            data["Parameter"]["Value"] = value[: value.find(":") + 1] + "**REDACTED**"
+
+        elif value and data.get("Parameter", {}).get("Type") == "SecureString":
+            data["Parameter"]["Value"] = value[:1] + "**REDACTED**"
+
+    # Redact Reborn API secrets.
     if isinstance(data, dict):
         if data.get("parametri", {}).get("sessione", {}).get("codice_sessione"):
             data["parametri"]["sessione"]["codice_sessione"] = "**REDACTED**"
@@ -144,6 +186,7 @@ def before_record_response(response):
         if data.get("parametri", {}).get("sessione", {}).get("pass"):
             data["parametri"]["sessione"]["pass"] = "**REDACTED**"
 
+    # Re-encode JSON body.
     response["body"]["string"] = json.dumps(data).encode()
     return response
 
@@ -165,19 +208,31 @@ def vcr_config():
         return {"before_record": lambda *args, **kwargs: None}
 
     return {
-        "decode_compressed_response": True,
+        ## Filter REQUEST headers.
         "filter_headers": (
-            "Authorization",
-            "User-Agent",
-            "X-Amz-Security-Token",
-            "X-Amz-Content-SHA256",
+            ("Authorization", "**REDACTED**"),
+            # ("User-Agent", "**REDACTED**"),
+            ("X-Amz-Security-Token", "**REDACTED**"),
+            ("X-Amz-Content-SHA256", "**REDACTED**"),
             "X-Amz-Date",
+            "X-Amz-Target",
+            "amz-sdk-invocation-id",
+            "amz-sdk-request",
         ),
+        #
+        ## Filter REQUEST query param like in:
+        #  requests.get('http://api.com/getdata?api_key=secretstring')
+        # "filter_query_parameters": ("api_key",),
+        #
+        ## Filter REQUEST POST data like in:
+        #  requests.post('http://api.com/postdata', data={'api_key': 'secretstring'})
         "filter_post_data_parameters": (
+            # Reborn automator.
             ("mail", "**REDACTED**"),
             ("pass", "**REDACTED**"),
             ("codice_sessione", "**REDACTED**"),
         ),
+        "decode_compressed_response": True,
         "ignore_hosts": ("localhost",),
         "record_mode": get_record_mode(),
         "match_on": get_match_on(),
@@ -217,6 +272,17 @@ def pytest_runtest_call():
         raise
 
 
+@pytest.fixture(autouse=True, scope="function")
+def clear_cache_for_aws_param_store_client():
+    """
+    Clear the Python in-memory cache (for time) used by AWS Param Store client.
+    Which is used in settings.py by `settings_utils.get_string_from_env_or_aws_parameter_store()`.
+    Without clearing the cache the HTTP interactions are not deterministic and vcr.py
+     raises exceptions for episodes not recorded or not played.
+    """
+    aws_parameter_store_client.cache.clear_cache()
+
+
 @pytest.fixture(scope="session")
 def monkeysession(request):
     from _pytest.monkeypatch import MonkeyPatch
@@ -226,15 +292,15 @@ def monkeysession(request):
     mpatch.undo()
 
 
-@pytest.fixture(autouse=True, scope="function")
-def mock_aws_credentials(monkeypatch, request):
-    """
-    Boto3 requires existing credentials.
-    """
-    if "nomoto" not in request.keywords:
-        # See: http://docs.getmoto.org/en/latest/docs/getting_started.html#example-on-usage
-        monkeypatch.setenv("AWS_ACCESS_KEY_ID", "testing")
-        monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "testing")
-        monkeypatch.setenv("AWS_SECURITY_TOKEN", "testing")
-        monkeypatch.setenv("AWS_SESSION_TOKEN", "testing")
-        monkeypatch.setenv("AWS_DEFAULT_REGION", "eu-south-1")
+# @pytest.fixture(autouse=True, scope="function")
+# def mock_aws_credentials(monkeypatch, request):
+#     """
+#     Boto3 requires existing credentials.
+#     """
+#     if "nomoto" not in request.keywords:
+#         # See: http://docs.getmoto.org/en/latest/docs/getting_started.html#example-on-usage
+#         monkeypatch.setenv("AWS_ACCESS_KEY_ID", "pytesting")
+#         monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "pytesting")
+#         monkeypatch.setenv("AWS_SECURITY_TOKEN", "pytesting")
+#         monkeypatch.setenv("AWS_SESSION_TOKEN", "pytesting")
+#         monkeypatch.setenv("AWS_DEFAULT_REGION", "eu-south-1")

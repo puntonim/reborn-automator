@@ -1,26 +1,14 @@
-PYTHON_VERSION:="3.13.7"
-SRC_DIR:="reborn_automator"
+PYTHON_VERSION:="3.13"
 
 .PHONY: default
 default: test ;
-
-
-# # Example: `$ make version-bump/1.0.0`.
-# # Do not edit the `version` in pyproject.toml directly or with `poetry version`, but
-# #  instead run this.
-# # This is so we can write the version in __version__.py which is always included in
-# #  the wheel after a poetry build (unlike pyproject.toml).
-# .PHONY : version-bump
-# version-bump/%:
-# 	@echo '# Do not edit __version__ directly, instead run: `$$ make version-bump/1.0.0`.\n__version__ = "$*"' > $(SRC_DIR)/__version__.py
-# 	@poetry version $*
 
 
 .PHONY : poetry-create-env
 poetry-create-env:
 	pyenv local $(PYTHON_VERSION) # It creates `.python-version`, to be git-ignored.
 	poetry env use $$(pyenv which python) # It creates the env via pyenv.
-	poetry install
+	poetry install --all-extras
 
 
 .PHONY : poetry-destroy-env
@@ -40,7 +28,7 @@ pyclean:
 	rm -rf *.egg-info build
 	rm -rf coverage.xml .coverage
 	find . -name .pytest_cache -type d -exec rm -rf "{}" +
-	find . -name __pycache__ -type d -exec rm -rf "{}" +	
+	find . -name __pycache__ -type d -exec rm -rf "{}" +
 
 
 .PHONY : clean
@@ -73,16 +61,26 @@ deploy-remove:
 
 .PHONY : test
 test:
-	poetry run pytest -s tests/ -v -n auto --durations=5
+	# poetry run pytest -s tests/ -v -n auto --durations=3
+	# Without poetry, the startup time is less, but you need to activate the env first.
+	pytest -s tests/ -v -n auto --durations=3
 
 
 .PHONY : format
 format:
-	isort .
-	black .
+	# When running Ruff's linter with --fix, do it before the formatter.
+	ruff check --fix
+	ruff format
+
+
+.PHONY : format
+format/%:
+	# When running Ruff's linter with --fix, do it before the formatter.
+	ruff check --fix $*
+	ruff format $*
 
 
 .PHONY : format-check
 format-check:
-	isort --check-only .
-	black --check .
+	ruff check
+	ruff format --check

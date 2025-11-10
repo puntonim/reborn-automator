@@ -1,33 +1,35 @@
 from typing import Any
 
+import log_utils as logger
 from aws_lambda_powertools.utilities.typing import LambdaContext
+from text_utils import Emoji
 
-from ..clients.botte_api_client import BotteApiClient
+from ..clients.botte_lambda_client import BotteLambdaClient
 from ..domains.book_class_domain import (
     BookClassDomain,
     FailedBooking,
     NoClassFoundInPalinsesto,
 )
-from ..utils import emoji_utils
-from ..utils.log_utils import logger
+from .views_utils import lambda_static_init
 
 # Objects declared outside the Lambda's handler method are part of Lambda's
 # *execution environment*. This execution environment is sometimes reused for subsequent
 # function invocations. Note that you can not assume that this always happens.
-# Typical use case: database connection. The same connection can be re-used in some
-# subsequent function invocations. It is recommended though to add logic to check if a
-# connection already exists before creating a new one.
+# Typical use cases: database connection and log init. The same db connection can be
+# re-used in some subsequent function invocations. It is recommended though to add
+# logic to check if a connection already exists before creating a new one.
 # The execution environment also provides 512 MB of *disk space* in the /tmp directory.
 # Again, this can be re-used in some subsequent function invocations.
-# See: https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html#runtimes-lifecycle-shutdown
+# See: https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html#static-initialization
 
-# The Lambda is configured with 0 retries. So do raise exceptions in the view.
+# This Lambda is configured with 0 retries. So do raise exceptions in the view.
 
+lambda_static_init()
 
 logger.info("CRON BOOK POWER CLASS: LOADING")
 
 
-@logger.inject_lambda_context(log_event=True)
+@logger.get_adapter().inject_lambda_context(log_event=True)
 def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
     """
     Book the next **powerlifting** class at Reborn.
@@ -81,14 +83,13 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
     except Exception as exc:
         exception = exc
 
-    # Use Botte (from patatrack monorepo) to send a Telegram message.
-    botte = BotteApiClient()
+    botte = BotteLambdaClient()
 
     if not exception:
         logger.info("Booking successful", extra=dict(response=response))
         botte.send_telegram_message(
-            emoji_utils.MUSCLE
-            + emoji_utils.GREEN_CIRCLE
+            Emoji.MUSCLE
+            + Emoji.GREEN_CIRCLE
             + "Powerlifting class booked for "
             + day_date.strftime("%Y-%m-%d")
         )
@@ -96,7 +97,7 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> None:
     if exception:
         exc_str = f"{exception.__class__.__name__}: {exception}"
         extra = dict(exc=exc_str)
-        message = emoji_utils.MUSCLE + emoji_utils.RED_CIRCLE
+        message = Emoji.MUSCLE + Emoji.RED_CIRCLE
 
         if isinstance(exception, NoClassFoundInPalinsesto):
             message += f"{exception.class_name} class NOT found in palinsesto"

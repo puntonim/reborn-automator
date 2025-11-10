@@ -1,5 +1,85 @@
 interactions:
 - request:
+    body: '{"Name": "/reborn-automator/prod/reborn-creds-password", "WithDecryption":
+      true}'
+    headers:
+      Authorization:
+      - '**REDACTED**'
+      Content-Length:
+      - '86'
+      Content-Type:
+      - !!binary |
+        YXBwbGljYXRpb24veC1hbXotanNvbi0xLjE=
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS40MC40IG1kL0JvdG9jb3JlIzEuNDAuNCB1YS8yLjEgb3MvbWFjb3MjMjIuNi4wIG1k
+        L2FyY2gjeDg2XzY0IGxhbmcvcHl0aG9uIzMuMTMuNyBtZC9weWltcGwjQ1B5dGhvbiBtL2IsRCxa
+        IGNmZy9yZXRyeS1tb2RlI2xlZ2FjeSBCb3RvY29yZS8xLjQwLjQgUFQvbm8tb3AvMy4yMi4xIFBU
+        RW52L05B
+    method: POST
+    uri: https://ssm.eu-south-1.amazonaws.com/
+  response:
+    body:
+      string: '{"Parameter": {"ARN": "arn:aws:ssm:eu-south-1:477353422995:parameter/reborn-automator/production/reborn-creds-password",
+        "DataType": "text", "LastModifiedDate": 1729863882.206, "Name": "/reborn-automator/prod/reborn-creds-password",
+        "Type": "SecureString", "Value": "W**REDACTED**", "Version": 1}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '288'
+      Content-Type:
+      - application/x-amz-json-1.1
+      Date:
+      - Sun, 09 Nov 2025 16:07:12 GMT
+      Server:
+      - Server
+      x-amzn-RequestId:
+      - 16153906-0fb8-490e-8679-e4958e2f4713
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"Name": "/reborn-automator/prod/reborn-creds-username", "WithDecryption":
+      true}'
+    headers:
+      Authorization:
+      - '**REDACTED**'
+      Content-Length:
+      - '86'
+      Content-Type:
+      - !!binary |
+        YXBwbGljYXRpb24veC1hbXotanNvbi0xLjE=
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS40MC40IG1kL0JvdG9jb3JlIzEuNDAuNCB1YS8yLjEgb3MvbWFjb3MjMjIuNi4wIG1k
+        L2FyY2gjeDg2XzY0IGxhbmcvcHl0aG9uIzMuMTMuNyBtZC9weWltcGwjQ1B5dGhvbiBtL2IsRCxa
+        IGNmZy9yZXRyeS1tb2RlI2xlZ2FjeSBCb3RvY29yZS8xLjQwLjQgUFQvbm8tb3AvMy4yMi4xIFBU
+        RW52L05B
+    method: POST
+    uri: https://ssm.eu-south-1.amazonaws.com/
+  response:
+    body:
+      string: '{"Parameter": {"ARN": "arn:aws:ssm:eu-south-1:477353422995:parameter/reborn-automator/production/reborn-creds-username",
+        "DataType": "text", "LastModifiedDate": 1729863858.335, "Name": "/reborn-automator/prod/reborn-creds-username",
+        "Type": "String", "Value": "puntonim@gmail.com", "Version": 1}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '290'
+      Content-Type:
+      - application/x-amz-json-1.1
+      Date:
+      - Sun, 09 Nov 2025 16:07:12 GMT
+      Server:
+      - Server
+      x-amzn-RequestId:
+      - ec2a4a90-5961-4120-bc5f-78acdf2ab26c
+    status:
+      code: 200
+      message: OK
+- request:
     body: mail=**REDACTED**&pass=**REDACTED**
     headers:
       Accept:
@@ -1193,38 +1273,47 @@ interactions:
       message: OK
 - request:
     body: '{"text": "\ud83d\udcaa\ud83d\udd34Calisthenics class NOT booked for 2025-04-16\n\nNon
-      hai abbonamenti attivi che ti permettano di prenotare questo corso."}'
+      hai abbonamenti attivi che ti permettano di prenotare questo corso.", "sender_app":
+      "REBORN_AUTOMATOR"}'
     headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
+      Authorization:
+      - '**REDACTED**'
       Content-Length:
-      - '155'
-      Content-Type:
-      - application/json
+      - '189'
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS40MC40IG1kL0JvdG9jb3JlIzEuNDAuNCB1YS8yLjEgb3MvbWFjb3MjMjIuNi4wIG1k
+        L2FyY2gjeDg2XzY0IGxhbmcvcHl0aG9uIzMuMTMuNyBtZC9weWltcGwjQ1B5dGhvbiBtL0QsWixi
+        IGNmZy9yZXRyeS1tb2RlI2xlZ2FjeSBCb3RvY29yZS8xLjQwLjQgUFQvbm8tb3AvMy4yMi4xIFBU
+        RW52L05B
     method: POST
-    uri: https://iwjuceybm1.execute-api.eu-south-1.amazonaws.com/message
+    uri: https://lambda.eu-south-1.amazonaws.com/2015-03-31/functions/477353422995%3Afunction%3Abotte-be-prod-message/invocations
   response:
     body:
-      string: '{"message_id": 34116, "from": {"id": 6570886232, "is_bot": true, "first_name":
-        "Botte BOT", "username": "realbottebot"}, "chat": {"id": 2137200685, "first_name":
-        "Paolo", "username": "puntonim", "type": "private"}, "date": 1744715029, "text":
-        "\ud83d\udcaa\ud83d\udd34Calisthenics class NOT booked for 2025-04-16\n\nNon
-        hai abbonamenti attivi che ti permettano di prenotare questo corso."}'
+      string: '{"statusCode": 200, "Content-Type": "application/json", "body": "{\"message_id\":
+        34296, \"from\": {\"id\": 6570886232, \"is_bot\": true, \"first_name\": \"Botte
+        BOT\", \"username\": \"realbottebot\"}, \"chat\": {\"id\": 2137200685, \"first_name\":
+        \"Paolo\", \"username\": \"puntonim\", \"type\": \"private\"}, \"date\": 1762768520,
+        \"text\": \"\\ud83d\\udcaa\\ud83d\\udd34Calisthenics class NOT booked for
+        2025-04-16\\n\\nNon hai abbonamenti attivi che ti permettano di prenotare
+        questo corso.\"}"}'
     headers:
-      Apigw-Requestid:
-      - JD57PiGOsu8EMIA=
       Connection:
       - keep-alive
       Content-Length:
-      - '389'
+      - '500'
       Content-Type:
-      - text/plain; charset=utf-8
+      - application/json
       Date:
-      - Tue, 15 Apr 2025 11:03:49 GMT
+      - Mon, 10 Nov 2025 09:55:20 GMT
+      X-Amz-Executed-Version:
+      - $LATEST
+      X-Amzn-Trace-Id:
+      - Root=1-6911b688-6c0ad9c2628374db7193daaa;Parent=1675491fdb474cfc;Sampled=0;Lineage=1:25958c89:0
+      x-amzn-Remapped-Content-Length:
+      - '0'
+      x-amzn-RequestId:
+      - e85939df-82aa-4f52-a20a-05b1433f2c86
     status:
       code: 200
       message: OK

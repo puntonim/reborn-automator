@@ -1,17 +1,15 @@
 from datetime import datetime, timedelta
 
 import pytest
+from aws_utils.aws_testfactories.eventbridge_scheduler_event_to_lambda_factory import (
+    EventbridgeSchedulerEventToLambdaFactory,
+)
+from aws_utils.aws_testfactories.lambda_context_factory import LambdaContextFactory
+from datetime_utils import datetime_testutils
 
 from reborn_automator.domains.book_class_domain import (
     FailedBooking,
     NoClassFoundInPalinsesto,
-)
-from reborn_automator.utils.testutils import datetime_testutils
-from reborn_automator.utils.testutils.aws_testfactories.cloudwatch_event_factory import (
-    CloudWatchEventFactory,
-)
-from reborn_automator.utils.testutils.aws_testfactories.lambda_context_factory import (
-    LambdaContextFactory,
 )
 from reborn_automator.views.cron_book_power_class_view import lambda_handler
 
@@ -27,7 +25,7 @@ class TestCronBookPowerClassView:
     def test_happy_flow(self):
         # Note: I built the 200 response in the cassette, it's not a real one.
         lambda_handler(
-            CloudWatchEventFactory.make_for_scheduled_event(),
+            EventbridgeSchedulerEventToLambdaFactory.make_for_scheduled_event(),
             self.context,
         )
 
@@ -35,7 +33,7 @@ class TestCronBookPowerClassView:
     def test_no_powerlifting_class_found_in_palinsesto(self):
         with pytest.raises(NoClassFoundInPalinsesto) as exc:
             lambda_handler(
-                CloudWatchEventFactory.make_for_scheduled_event(),
+                EventbridgeSchedulerEventToLambdaFactory.make_for_scheduled_event(),
                 self.context,
             )
         assert exc.value.class_name == "Powerlifting"
@@ -46,6 +44,6 @@ class TestCronBookPowerClassView:
         #  with the cali class.
         with pytest.raises(FailedBooking):
             lambda_handler(
-                CloudWatchEventFactory.make_for_scheduled_event(),
+                EventbridgeSchedulerEventToLambdaFactory.make_for_scheduled_event(),
                 self.context,
             )

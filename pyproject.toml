@@ -1,48 +1,71 @@
-[tool.poetry]
+[project]
 name = "reborn-automator"
-description = "reborn-automator"
-authors = ["nimiq <puntonim@gmail.com>"]
+description = "Reborn Automator"
+authors = [
+    {name = "puntonim", email = "puntonim@gmail.com"}
+]
 readme = "README.md"
 license = "no license"
-
-# Do not edit `version` directly or with `poetry version`, but instead run: `$ make version-bump/1.0.0`.
-# This is so we can write the version in __version__.py which is always included in
-#  the wheel after a poetry build (unlike pyproject.toml).
-version = "0.1.0"
+version = "1.0.0"
+requires-python = ">=3.13,<4"  # <4 required only by aws-lambda-powertools.
+dependencies = [
+    "requests (>=2.32.5,<3.0.0)",
+    "log-utils @ git+https://github.com/puntonim/utils-monorepo#subdirectory=log-utils",
+    "botte-lambda-client @ git+https://github.com/puntonim/botte-monorepo#subdirectory=libs/public-clients/botte-lambda-client",
+    "aws-utils @ git+https://github.com/puntonim/utils-monorepo#subdirectory=aws-utils",
+    "datetime-utils @ git+https://github.com/puntonim/utils-monorepo#subdirectory=datetime-utils",
+    "settings-utils @ git+https://github.com/puntonim/utils-monorepo#subdirectory=settings-utils",
+    "text-utils @ git+https://github.com/puntonim/utils-monorepo#subdirectory=text-utils"
+]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry.dependencies]
-python = "^3.13"  # Latest AWS Lambda Python runtime.
-requests = "^2.32.5"
+[dependency-groups]
+dev = [
+    "aws-lambda-powertools[aws-sdk] (>=3.22.0,<4.0.0)",
+    "botocore (==1.40.4)",  # Must be the same as in AWS Lambda Python runtime.
+    "boto3 (==1.40.4)",  # Must be the same as in AWS Lambda Python runtime.
+    "ipdb (>=0.13.13)",
+    # Python linter and formatter.
+    "ruff (==0.14.2)",  # Must be the same as in .pre-commit-config.yaml.
+    # Serverless with Python support uses `poetry export` command which is not available
+    #  anymore in recent versions of Poetry. `poetry-plugin-export` solves this.
+    # https://github.com/oss-review-toolkit/ort/issues/10642
+    "poetry-plugin-export (>=1.9.0,<2.0.0)",
+]
+test = [
+    "pytest (>=8.4.2,<9.0.0)",
+    "pytest-xdist[psutil] (>=3.8.0,<4.0.0)",
+    # VCR.py integration with pytest.
+    "pytest-recording (>=0.13.4)",
+    "settings-utils[get-from-aws-param-store] @ git+https://github.com/puntonim/utils-monorepo#subdirectory=settings-utils",
+]
 
-[tool.poetry.group.dev.dependencies]
-aws-lambda-powertools = {extras = ["aws-sdk"], version = "^3.21.0"}
-black = "25.9.0"  # Must be the same as in `.pre-commit-config.yaml`.
-isort = "7.0.0"  # Must be the same as in `.pre-commit-config.yaml`.
-ipdb = "^0.13.13"
-
-[tool.poetry.group.test.dependencies]
-pytest = "^8.4.2"
-pytest-xdist = {extras = ["psutil"], version = "^3.8.0"}
-# VCR.py integration with pytest.
-pytest-recording = "^0.13.4"
-
-[tool.black]  # See: https://black.readthedocs.io/en/stable/pyproject_toml.html
+[tool.ruff]
 line-length = 88  # Default.
-# skip-string-normalization = true  # Only for old projects.
-target-version = ["py313"]
-include = '\.py?$'
-extend-exclude = '''  # It automatically excludes all files in .gitignore by default.
-/(
-    \.git
-  # Project-specific:
-  | docs
-)/
-'''
+extend-exclude = ["docs"]
 
-[tool.isort]
-profile = "black"  # See: https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#profile
-skip_gitignore = true  # Skip all files in .gitignore.
+[tool.ruff.format]
+quote-style = "double"  # Default.
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+ignore = [
+    # E501 Line too long: let the ruff formatter take care long lines.
+    "E501",
+]

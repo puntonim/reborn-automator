@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: '{"text": "Hello from reborn-automator pytests!", "sender_app": "REBORN_AUTOMATOR"}'
+    headers:
+      Authorization:
+      - '**REDACTED**'
+      Content-Length:
+      - '82'
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS40MC40IG1kL0JvdG9jb3JlIzEuNDAuNCB1YS8yLjEgb3MvbWFjb3MjMjIuNi4wIG1k
+        L2FyY2gjeDg2XzY0IGxhbmcvcHl0aG9uIzMuMTMuNyBtZC9weWltcGwjQ1B5dGhvbiBtL2IsRCxa
+        IGNmZy9yZXRyeS1tb2RlI2xlZ2FjeSBCb3RvY29yZS8xLjQwLjQgUFQvbm8tb3AvMy4yMi4xIFBU
+        RW52L05B
+    method: POST
+    uri: https://lambda.eu-south-1.amazonaws.com/2015-03-31/functions/477353422995%3Afunction%3Abotte-be-prod-message/invocations
+  response:
+    body:
+      string: '{"statusCode": 200, "Content-Type": "application/json", "body": "{\"message_id\":
+        34293, \"from\": {\"id\": 6570886232, \"is_bot\": true, \"first_name\": \"Botte
+        BOT\", \"username\": \"realbottebot\"}, \"chat\": {\"id\": 2137200685, \"first_name\":
+        \"Paolo\", \"username\": \"puntonim\", \"type\": \"private\"}, \"date\": 1762768093,
+        \"text\": \"Hello from reborn-automator pytests!\"}"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '387'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 10 Nov 2025 09:48:13 GMT
+      X-Amz-Executed-Version:
+      - $LATEST
+      X-Amzn-Trace-Id:
+      - Root=1-6911b4d8-036778a346b38617728ce782;Parent=6b6073e4f259ecbb;Sampled=0;Lineage=1:25958c89:0
+      x-amzn-Remapped-Content-Length:
+      - '0'
+      x-amzn-RequestId:
+      - 8e74fbe4-deef-4cd6-862a-477fda184aaf
+    status:
+      code: 200
+      message: OK
+version: 1

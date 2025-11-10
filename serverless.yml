@@ -1,4 +1,4 @@
-# Serverless version 4.21.1.
+# Serverless version 4.23.0.
 
 # Docs:
 #  - Serverless for AWS full specs: https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml/
@@ -17,19 +17,16 @@ provider:
   memorySize: 256 # Default is 1024.
   timeout: 10 # Default is 6 seconds. Note: API Gateway current maximum is 30 seconds.
   logRetentionInDays: 90 # Set the default RetentionInDays for a CloudWatch LogGroup. Default is never expire.
-  environment: # Env vars. Use it also for secrets and config to override those in `settings_default.toml`.
+  environment:
+    # Env vars. Use it also for secrets and config to override those in `settings_default.toml`.
     # Note: they do NOT need a prefix.
     # Note: it's better to store all secrets here rather than nested under `functions:`
     #  so they are available to all Lambdas and to the `/settings` introspection endpoint.
     # Some are from ssm Parameter Store: https://www.serverless.com/framework/docs/providers/aws/guide/variables#reference-variables-using-the-ssm-parameter-store
     #
     # Credentials used in Reborn mobile app.
-    REBORN_CREDS_USERNAME: ${env:REBORN_CREDS_USERNAME, ssm:/reborn-automator/${opt:stage, self:provider.stage}/reborn-creds-username, ssm:/reborn-automator/production/reborn-creds-username, 'XXX'}
-    REBORN_CREDS_PASSWORD: ${env:REBORN_CREDS_PASSWORD, ssm:/reborn-automator/${opt:stage, self:provider.stage}/reborn-creds-password, ssm:/reborn-automator/production/reborn-creds-password, 'XXX'}
-    # Botte project (in patatrack monorepo) token to be used to authentic with its
-    #  HTTP interface (it's the env var API_AUTHORIZER_TOKEN in Botte).
-    BOTTE_AUTH_TOKEN: ${env:BOTTE_AUTH_TOKEN, ssm:/patatrack-botte/prod/api-authorizer-token, 'XXX'}
-
+    REBORN_CREDS_USERNAME: ${env:REBORN_CREDS_USERNAME, ssm:/reborn-automator/${opt:stage, self:provider.stage}/reborn-creds-username, ssm:/reborn-automator/prod/reborn-creds-username, 'XXX'}
+    REBORN_CREDS_PASSWORD: ${env:REBORN_CREDS_PASSWORD, ssm:/reborn-automator/${opt:stage, self:provider.stage}/reborn-creds-password, ssm:/reborn-automator/prod/reborn-creds-password, 'XXX'}
   tags: # CloudFormation tags to apply to APIs and functions.
     project: ${self:service}
     environment: ${sls:stage}
@@ -68,40 +65,153 @@ functions:
     iam:
       role:
         statements: []
+    # *Commented-out as this Lambda is with SYNC invocation (API Gateway).*
+    # DLQ only for ASYNC invocations: set, as DLQ, the SNS topic in aws-watchdog that
+    #  sends emails to me.
+    # Note: Lambda sync/async invocations examples:
+    #  - ASYNC: S3, SNS, SQS, CloudWatch Logs, EventBridge Scheduler, aws cli, etc.
+    #  - SYNC: API Gateway, aws cli, etc.
+    # onError: arn:aws:sns:eu-south-1:477353422995:aws-watchdog-errors-prod
 
+  # IMP: do not rename! But if you do, mind that this name is used in the
+  #  `iam` in this function, and also in the CloudFormation template for
+  #  CronDashbookDashcaliDashclassSchedulerSchedule1 (AWS::Scheduler::Schedule).
   cron-book-cali-class:
     handler: reborn_automator.views.cron_book_cali_class_view.lambda_handler
     timeout: 28 # Note: API Gateway current maximum is 29 seconds.
     maximumRetryAttempts: 0
     events:
-      # Cron expressions:
-      #  - https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html
-      #  - https://www.serverless.com/framework/docs/providers/aws/events/schedule
+      # Periodic schedule with EventBridge Scheduler.
       - schedule:
           description: 'Book calisthenics class held on Mon and Wed 20:00 Rome timezone'
+          # There are 2 kinds of schedule:
+          #  - method: eventBus
+          #    It's a EventBridge bus schedule, AWS::Event::Rule.
+          #    It has some limitations and it is the worst choice.
+          #    Docs: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-events-rule.html
+          #  - method: scheduler
+          #    It's an EventBridge Scheduler schedule, AWS::Scheduler::Schedule.
+          #    It's the best choice.
+          #    The only downside is that you do not see it directly, as trigger, in the
+          #     Lambda page in AWS web console, but in the EventBridge page under Scheduler.
+          #     Docs: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-scheduler-schedule.html
+          # For a comparison of the 2 types, see:
+          # - https://www.serverless.com/framework/docs/providers/aws/events/schedule#use-awsschedulerschedule-instead-of-awseventrule
+          method: scheduler
           rate:
-            - cron(5 19 ? * SAT *) # Every Saturday at 19:05 UTC (20:05/21:05AM in Rome winter/summer).
-            - cron(5 19 ? * MON *) # Every Monday at 19:05 UTC (20:05/21:05AM in Rome winter/summer).
+            # Cron expressions:
+            #  - https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html
+            #  - https://www.serverless.com/framework/docs/providers/aws/events/schedule
+            - cron(2 20 ? * SAT,MON *) # Every Saturday and Monday at 20:02 Italian timezone.
+          timezone: Europe/Rome
+          # IMP: Serverless does not support this configuration (target > deadLetterConfig
+          #  and retryPolicy). So I am doing it down here in the CloudFormation
+          #  resource `CronDashbookDashcaliDashclassSchedulerSchedule1`.
+          # target:
+          #   deadLetterConfig:
+          #     arn: ${self:custom.awsWatchdogSqsErrorsArn}
+          #   retryPolicy:
+          #     maximumRetryAttempts: 0
     iam:
       role:
-        statements: []
+        statements:
+          # IMP: this permission is required otherwise the EventBridge Scheduler doesn't
+          #  have the permission to invoke the Lambda. Notice that if you comment out the
+          #  whole iamRoleStatements, then Serverless creates the right permission. So it
+          #  is a bug in Serverless, probably.
+          - Effect: Allow
+            Action:
+              - lambda:InvokeFunction
+            Resource: arn:aws:lambda:${aws:region}:${aws:accountId}:function:${self:service}-${sls:stage}-cron-book-cali-class
+          # Permissions to send failed EventBridge Scheduler schedule to SQS as DLQ (
+          #  configuration done in CloudFormation down here).
+          - Effect: Allow
+            Action:
+              - sqs:SendMessage
+            Resource: ${self:custom.awsWatchdogSqsErrorsArn}
+          # Permission to invoke Botte Lambda.
+          - Effect: Allow
+            Action:
+              - lambda:InvokeFunction
+            Resource: ${self:custom.botteLambdaArn}
+    # DLQ only for ASYNC invocations: set, as DLQ, the SNS topic in aws-watchdog that
+    #  sends emails to me.
+    # Note: Lambda sync/async invocations examples:
+    #  - ASYNC: S3, SNS, SQS, EventBridge Scheduler, aws cli, etc.
+    #  - SYNC: API Gateway, aws cli, etc.
+    # So for any failure, I will receive an email from this DQL and and email from
+    #  aws-watchdog that monitors any error log in CloudWatch.
+    onError: ${self:custom.awsWatchdogSnsErrorsArn}
 
+  # IMP: do not rename! But if you do, mind that this name is used in the
+  #  `iam` in this function, and also in the CloudFormation template for
+  #  CronDashbookDashpowerDashclassSchedulerSchedule1 (AWS::Scheduler::Schedule).
   cron-book-power-class:
     handler: reborn_automator.views.cron_book_power_class_view.lambda_handler
     timeout: 28 # Note: API Gateway current maximum is 29 seconds.
     maximumRetryAttempts: 0
     events:
-      # Cron expressions:
-      #  - https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html
-      #  - https://www.serverless.com/framework/docs/providers/aws/events/schedule
+      # Periodic schedule with EventBridge Scheduler.
       - schedule:
           description: 'Book powerlifting class held on Tue and Thu 19:00 Rome timezone'
+          # There are 2 kinds of schedule:
+          #  - method: eventBus
+          #    It's a EventBridge bus schedule, AWS::Event::Rule.
+          #    It has some limitations and it is the worst choice.
+          #    Docs: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-events-rule.html
+          #  - method: scheduler
+          #    It's an EventBridge Scheduler schedule, AWS::Scheduler::Schedule.
+          #    It's the best choice.
+          #    The only downside is that you do not see it directly, as trigger, in the
+          #     Lambda page in AWS web console, but in the EventBridge page under Scheduler.
+          #     Docs: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-scheduler-schedule.html
+          # For a comparison of the 2 types, see:
+          # - https://www.serverless.com/framework/docs/providers/aws/events/schedule#use-awsschedulerschedule-instead-of-awseventrule
+          method: scheduler
           rate:
-            - cron(5 18 ? * SUN *) # Every Sunday at 18:05 UTC (19:05/20:05AM in Rome winter/summer).
-            - cron(5 18 ? * TUE *) # Every Tuesday at 18:05 UTC (19:05/20:05AM in Rome winter/summer).
+            # Cron expressions:
+            #  - https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html
+            #  - https://www.serverless.com/framework/docs/providers/aws/events/schedule
+            - cron(2 19 ? * SUN,TUE *) # Every Sunday and Tuesday at 19:02 Italian timezone
+          timezone: Europe/Rome
+          # IMP: Serverless does not support this configuration (target > deadLetterConfig
+          #  and retryPolicy). So I am doing it down here in the CloudFormation
+          #  resource `CronDashbookDashpowerDashclassSchedulerSchedule1`.
+          # target:
+          #   deadLetterConfig:
+          #     arn: ${self:custom.awsWatchdogSqsErrorsArn}
+          #   retryPolicy:
+          #     maximumRetryAttempts: 0
     iam:
       role:
-        statements: []
+        statements:
+          # IMP: this permission is required otherwise the EventBridge Scheduler doesn't
+          #  have the permission to invoke the Lambda. Notice that if you comment out the
+          #  whole iamRoleStatements, then Serverless creates the right permission. So it
+          #  is a bug in Serverless, probably.
+          - Effect: Allow
+            Action:
+              - lambda:InvokeFunction
+            Resource: arn:aws:lambda:${aws:region}:${aws:accountId}:function:${self:service}-${sls:stage}-cron-book-power-class
+          # Permissions to send failed EventBridge Scheduler schedule to SQS as DLQ (
+          #  configuration done in CloudFormation down here).
+          - Effect: Allow
+            Action:
+              - sqs:SendMessage
+            Resource: ${self:custom.awsWatchdogSqsErrorsArn}
+          # Permission to invoke Botte Lambda.
+          - Effect: Allow
+            Action:
+              - lambda:InvokeFunction
+            Resource: ${self:custom.botteLambdaArn}
+    # DLQ only for ASYNC invocations: set, as DLQ, the SNS topic in aws-watchdog that
+    #  sends emails to me.
+    # Note: Lambda sync/async invocations examples:
+    #  - ASYNC: S3, SNS, SQS, EventBridge Scheduler, aws cli, etc.
+    #  - SYNC: API Gateway, aws cli, etc.
+    # So for any failure, I will receive an email from this DQL and and email from
+    #  aws-watchdog that monitors any error log in CloudWatch.
+    onError: ${self:custom.awsWatchdogSnsErrorsArn}
 
 
 package:
@@ -119,6 +229,10 @@ package:
 custom:
   # Constants.
   source: https://github.com/puntonim/reborn-automator/blob/main/serverless.yml
+  # SNS and SQS DLQs in aws-watchdog (always prefer SNS, when possible).
+  awsWatchdogSqsErrorsArn: arn:aws:sqs:eu-south-1:477353422995:aws-watchdog-errors-prod
+  awsWatchdogSnsErrorsArn: arn:aws:sns:eu-south-1:477353422995:aws-watchdog-errors-prod
+  botteLambdaArn: arn:aws:lambda:eu-south-1:477353422995:function:botte-be-prod-message
 
   # Plugin: serverless-python-requirements.
   pythonRequirements:
@@ -132,11 +246,7 @@ custom:
     useDownloadCache: false
     # Use `--no-deps` because all deps are listed in poetry.lock and then exported to requirements.txt.
     # Also, without using `--no-deps` caused an issue with the versioning of git deps (datetime-utils and strava-client).
-    pipCmdExtraArgs: ["--no-cache-dir"]
-
-
-plugins:
-  - serverless-python-requirements
+    pipCmdExtraArgs: ["--no-cache-dir --no-deps"]
 
 
 # Raw CloudFormation template syntax, in YAML.
@@ -144,3 +254,49 @@ plugins:
 resources:
   # Set the description in the CloudFormation stack.
   Description: Managed by Serverless at ${self:custom.source}
+
+  Resources:
+
+    ####################################################################################
+    ##### Update the EventBridge Scheduler schedules defined above for Lambdas.
+    ####################################################################################
+
+    # IMP: this is an UPDATE of a resource defined above.
+    # This EventBridge Scheduler schedule is automatically created by Serverless as
+    #  defined in `functions: cron-check: events: schedule`. However Serverless
+    #  does not support the configuration I added here (the DLQ and retry in Target),
+    #  at the time of writing (nov 2025).
+    # IMP: do not rename this resource! It must match the name automatically generated
+    #  by Serverless for `functions: cron-book-cali-class: events: schedule`. You can
+    #  find this name in the temp file: .serverless/serverless-state.json.
+    CronDashbookDashcaliDashclassSchedulerSchedule1:
+        Type: AWS::Scheduler::Schedule
+        Properties:
+          Target:
+            # DLQ to SQS (SNS not supported, only SQS) for the EventBridge Scheduler
+            #  schedule that trigger the Lambda cron-book-cali-class. The schedule is defined
+            #  above, in functions: cron-book-cali-class: events: schedule, and updated with the
+            #  configuration defined here.
+            # A schedule is sent to DLQ in case it fails to invoke the Lambda. Not if
+            #  the Lambda fails, but if its invocation fails.
+            # You can test a failed invocation by manually deleting the Lambda from
+            #  AWS web console after having deployed this Serverless file. Note: I also
+            #  tried to test it by changing this settings in AWS web console:
+            #   Configuration > Concurrency > Reserved concurrency to 0
+            #  but it did not work, the Lambda did not get invoked and no msg sent
+            #  to DLQ.
+            DeadLetterConfig:
+              Arn: ${self:custom.awsWatchdogSqsErrorsArn}
+            # Number of retries before a schedule is considered failed and sent to DLQ.
+            RetryPolicy:
+              MaximumRetryAttempts: 0
+
+    # See all comments in CronDashbookDashcaliDashclassSchedulerSchedule1.
+    CronDashbookDashpowerDashclassSchedulerSchedule1:
+        Type: AWS::Scheduler::Schedule
+        Properties:
+          Target:
+            DeadLetterConfig:
+              Arn: ${self:custom.awsWatchdogSqsErrorsArn}
+            RetryPolicy:
+              MaximumRetryAttempts: 0

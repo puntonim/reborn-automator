@@ -1,19 +1,10 @@
 repos:
-  - repo: https://github.com/pycqa/isort
-    rev: 7.0.0  # Must be the same in every project and lib's pyproject.toml.
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.2  # Must be the same as in `pyproject.toml`.
     hooks:
-      # Libraries: none yet.
-      # Projects.
-      - id: isort
+      - id: ruff-check  # Linter.
         files: '^(reborn_automator|tests)/'
+        args: [ --fix ]
         types: [file, python]
-  - repo: https://github.com/python/black
-    rev: 25.9.0  # Must be the same in every project and lib's pyproject.toml.
-    hooks:
-      # Libraries: none yet.
-      # Projects.
-      - id: black
-        language_version: python3.13
-        files: '^(reborn_automator|tests)/'
+      - id: ruff-format  # Formatter.
         types: [file, python]
-

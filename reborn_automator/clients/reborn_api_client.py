@@ -1,8 +1,7 @@
 from datetime import date, datetime
 
+import log_utils as logger
 import requests
-
-from ..utils.log_utils import logger
 
 
 class RebornApiClient:
@@ -373,7 +372,7 @@ class RebornApiClient:
         logger.debug("Booking class...")
         if isinstance(day, str):
             day_str = day
-        elif isinstance(day, date) or isinstance(day, datetime):
+        elif isinstance(day, (date, datetime)):
             day_str = day.strftime("%Y-%m-%d")
         else:
             raise NotADate(day)

@@ -2,10 +2,11 @@ from datetime import date, datetime
 from enum import StrEnum
 from functools import lru_cache
 
+import datetime_utils
+import log_utils as logger
+
 from ..clients.reborn_api_client import RebornApiClient
 from ..conf import settings
-from ..utils import datetime_utils
-from ..utils.log_utils import logger
 
 
 class ClassNameEnum(StrEnum):
@@ -18,7 +19,7 @@ class BookClassDomain:
         self.client = RebornApiClient()
         self.sede_id = sede_id
 
-    @lru_cache
+    @lru_cache  # noqa: B019
     def _login(self):
         self.client.login(
             settings.REBORN_CREDS_USERNAME, settings.REBORN_CREDS_PASSWORD

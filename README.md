@@ -1,36 +1,48 @@
-**Reborn Automator**
-====================
+<p align="center">
+  <img src="docs/img/logo.png" height="256"></a>
+  <h1 align="center">
+    Reborn Automator
+  </h1>
+  <p align="center">
+    Automate the booking of classes at Reborn gym.
+  <p>
+</p>
 
-Automate the booking of classes at Reborn gym.\
+<br>
+
 This project is deployed to AWS Lambda and it is triggered by cron events scheduled
- in CloudWatch.
+ with EventsBridge Scheduler.
 
-At the right time, as per the cron schedule in CloudWatch, the Lambda tries to book
- the next calisthenics class, and sends me a Telegram message with the result.
-
-
-Usage
-=====
-There is no HTTP interface (apart from the introspection endpoint), but just a
- cron-scheduled Lambda. So it is triggered automatically.
+At the right time, as per the cron schedule, the Lambdas try to book
+ the next calisthenics or powerlifting class, and send me a Telegram message with the
+ result.
 
 
-Architecture
-============
-The main Lambda function is triggered by a cron schedule in Event Bridge, CloudWatch:
-  - cron(5 19 ? * MON *) # Every Monday at 19:05 UTC (20:05/21:05AM in Rome winter/summer).
-  - cron(5 19 ? * SAT *) # Every Saturday at 19:05 UTC (20:05/21:05AM in Rome winter/summer).
+⚡ Usage
+=======
+There is no HTTP interface (apart from the introspection HTTP endpoint), but just 2
+ cron-scheduled Lambdas. So the automatic triggers are the cron schedules.
+
+
+📐 Architecture
+================
+The Lambda functions are triggered by a cron schedule in EventBridge Scheduler:
+ - calisthenics:
+   - cron(2 20 ? * SAT,MON *) # Every Saturday and Monday at 20:02 Italian timezone.
+ - powerlifting:
+   - cron(2 19 ? * SUN,TUE *) # Every Sunday and Tuesday at 19:02 Italian timezone
+
 These times work with the business rules explained in `How it works`.
 
-To send Telegram messages, we use Botte (part of the Patatrack monorepo) via HTTP.
+To send Telegram messages, we use Botte (botte-monorepo) via its Lambda interface.
 
 No database.
 
 ![architecture-draw.io.svg](./docs/img/architecture-draw.io.svg)
 
 
-How it works
-============
+🔭 How it works
+===============
 Classes are usually booked via a mobile app that performs regular HTTP(s) requests.
 
 I inspected these requests by installing the app on the emulator Genymotion on macOS
@@ -38,8 +50,12 @@ I inspected these requests by installing the app on the emulator Genymotion on m
 Find the details of these requests in the next sections.
 
 Some business rules are in place in order to regulate bookings:
- - booking for Monday 20:00 classes opens the previous Saturday at 20:00
- - booking for Wednesday 20:00 classes opens the previous Monday at 20:00\
+ - calisthenics class:
+   - booking for Monday 20:00 classes opens the previous Saturday at 20:00
+   - booking for Wednesday 20:00 classes opens the previous Monday at 20:00
+ - powerlifting class:
+   - booking for Tuesday 19:00 classes opens the previous Sunday at 19:00
+   - booking for Thursday 19:00 classes opens the previous Tuesday at 19:00\
 So these times are the cron schedule.
 
 1' request: login
@@ -384,20 +400,18 @@ $ curl -X POST https://reborn.shaggyowl.com/funzioniapp/v407/prenotazione_new \
 ```
 
 
-Development setup
-=================
-
----
+🛠️ Development setup
+====================
 
 1 - System requirements
 ----------------------
 
-**Python 3.12**\
-The target Python 3.12 as it is the latest available environment at AWS Lambda.\
+**Python 3.13**\
+The target Python 3.13 as it is the latest available environment at AWS Lambda.\
 Install it with pyenv:
 ```sh
 $ pyenv install -l  # List all available versions.
-$ pyenv install 3.12.4
+$ pyenv install 3.13.7
 ```
 
 **Poetry**\
@@ -428,24 +442,52 @@ $ poetry shell
 Without using Makefile the full process is:
 ```sh
 # Activate the Python version for the current project:
-$ pyenv local 3.12.4  # It creates `.python-version`, to be git-ignored.
+$ pyenv local 3.13  # It creates `.python-version`, to be git-ignored.
 $ pyenv which python
-~/.pyenv/versions/3.12.4/bin/python
+/Users/nimiq/.pyenv/versions/3.13.7/bin/python
 
 # Now create a venv with poetry:
-$ poetry env use ~/.pyenv/versions/3.12.4/bin/python
+$ poetry env use ~/.pyenv/versions/3.13.7/bin/python
 # Now you can open a shell and/or install:
-$ poetry shell
+$ eval $(poetry env activate)
 # And finally, install all requirements:
 $ poetry install
+# And later deactivate the virtual env with:
+$ deactivate
 ```
 
-To add a new requirement:
+To add new requirements:
 ```sh
 $ poetry add requests
-$ poetry add pytest --dev  # Dev only.
-$ poetry add requests[security,socks]  # With extras.
 
+# Dev or test only.
+$ poetry add -G test pytest
+$ poetry add -G dev ipdb
+
+# With extra reqs:
+$ poetry add -G dev "aws-lambda-powertools[aws-sdk]"
+$ poetry add "requests[security,socks]"
+
+# From Git:
+$ poetry add git+https://github.com/aladagemre/django-notification
+
+# From a Git subdir:
+$ poetry add git+https://github.com/puntonim/utils-monorepo#subdirectory=log-utils
+# and with extra reqs:
+$ poetry add "git+https://github.com/puntonim/utils-monorepo#subdirectory=log-utils[rich-adapter,loguru-adapter]"
+# and at a specific version:
+$ poetry add git+https://github.com/puntonim/utils-monorepo@00a49cb64524df19bf55ab5c7c1aaf4c09e92360#subdirectory=log-utils
+# and at a specific version, with extra reqs:
+$ poetry add "git+https://github.com/puntonim/utils-monorepo@00a49cb64524df19bf55ab5c7c1aaf4c09e92360#subdirectory=log-utils[rich-adapter,loguru-adapter]"
+
+# From a local dir:
+$ poetry add ../utils-monorepo/log-utils/
+$ poetry add "log-utils @ file:///Users/myuser/workspace/utils-monorepo/log-utils/"
+# and with extra reqs:
+$ poetry add "../utils-monorepo/log-utils/[rich-adapter,loguru-adapter]"
+# and I was able to choose a Git version only with pip (not poetry):
+$ pip install "git+file:///Users/myuser/workspace/utils-monorepo@00a49cb64524df19bf55ab5c7c1aaf4c09e92360#subdirectory=log-utils" 
+```
 
 3 - Pre-commit
 --------------
@@ -455,11 +497,17 @@ $ pre-commit install
 ```
 
 
-Deployment
-==========
+🔨 Test
+======
 
----
+To run unit and end-to-end tests:
+```sh
+$ make test
+```
 
+
+🚀 Deployment
+=============
 
 ### 1. Install deployment requirements
 
@@ -472,21 +520,13 @@ $ node -v > .nvmrc
 ```
 Follow the [install instructions](https://serverless.com/framework/docs/getting-started#install-as-a-standalone-binary)
 for Serverless, something like `curl -o- -L https://slss.io/install | bash`.
-We currently use version 3.12.0, if you have an older major version you can upgrade Serverless with: `sls upgrade --major`.
+We currently use version 4.23.0, if you have an older major version you can upgrade Serverless with: `sls upgrade --major`.
 
 Then to install the Serverless plugins required:
 ```shell
 #$ sls upgrade  # Only if you are sure it will not install a major version.
 $ nvm install
 $ nvm use
-# You may need to restart your terminal before running the next command to avoid this warning:
-#  WARN serverless-python-requirements@5.4.0 requires a peer of serverless@^2.32 || 3 but none is installed.
-# The warning may eventually result in this error:
-#  Error: Cannot find module '/hdmap-web/projects/job-scheduler/node_modules/es5-ext/-e'
-$ sls plugin install -n serverless-python-requirements
-$ sls plugin install -n serverless-iam-roles-per-function
-# If it fails again try with:
-$ npm install
 ```
 
 ### 2. Deployments steps
@@ -494,8 +534,8 @@ $ npm install
 #### 2a. AWS Parameter Store
 Add to AWS Parameter Store the Reborn app creds.\
 Keys:
- - `/reborn-automator/production/reborn-creds-username`
- - `/reborn-automator/production/reborn-creds-password`
+ - `/reborn-automator/prod/reborn-creds-username`
+ - `/reborn-automator/prod/reborn-creds-password`
 
 #### 2b. Actual deploy
 Note: AWS CLI and credentials should be already installed and configured.\
@@ -526,6 +566,6 @@ $ sls remove --stage dev-jane
 ```
 
 
-Copyright
-========
+©️ Copyright
+=============
 Copyright puntonim (https://github.com/puntonim). No License.

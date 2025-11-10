@@ -1,34 +1,36 @@
+import importlib
 import sqlite3
 import sys
 from typing import Any
 
-import boto3
-import botocore
+import datetime_utils
+import log_utils as logger
 from aws_lambda_powertools.utilities.data_classes import APIGatewayProxyEventV2
 from aws_lambda_powertools.utilities.typing import LambdaContext
+from aws_utils import aws_lambda_utils
 
 from ..__version__ import __version__
 from ..conf import settings
-from ..utils import aws_lambda_utils, datetime_utils
-from ..utils.log_utils import logger
+from .views_utils import lambda_static_init
 
 # Objects declared outside the Lambda's handler method are part of Lambda's
 # *execution environment*. This execution environment is sometimes reused for subsequent
 # function invocations. Note that you can not assume that this always happens.
-# Typical use case: database connection. The same connection can be re-used in some
-# subsequent function invocations. It is recommended though to add logic to check if a
-# connection already exists before creating a new one.
+# Typical use cases: database connection and log init. The same db connection can be
+# re-used in some subsequent function invocations. It is recommended though to add
+# logic to check if a connection already exists before creating a new one.
 # The execution environment also provides 512 MB of *disk space* in the /tmp directory.
 # Again, this can be re-used in some subsequent function invocations.
-# See: https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html#runtimes-lifecycle-shutdown
+# See: https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html#static-initialization
 
-# The Lambda is configured with 0 retries. So do raise exceptions in the view.
+# This Lambda is configured with 0 retries. So do raise exceptions in the view.
 
+lambda_static_init()
 
 logger.info("ENDPOINT INTROSPECTION: LOADING")
 
 
-@logger.inject_lambda_context(log_event=True)
+@logger.get_adapter().inject_lambda_context(log_event=True)
 def lambda_handler(event: dict[str, Any], context: LambdaContext) -> dict:
     """
     Get introspection info.
@@ -97,36 +99,46 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> dict:
 
     api_event = APIGatewayProxyEventV2(event)
 
-    # Mind that there is also a /admin/introspection endpoint that includes all
-    #  this endpoints plus extra endpoints that expose some private info.
-
     if api_event.path.endswith("/version"):
-        body = {
+        data = {
             "appName": settings.APP_NAME,
             "app": __version__,
             "python": sys.version,
-            "boto3": boto3.__version__,
-            "botocore": botocore.__version__,
-            "sqlite3": sqlite3.version,
+            "boto3": None,
+            "botocore": None,
+            "pydantic": None,
+            "sqlite3": sqlite3.sqlite_version,
         }
-        return aws_lambda_utils.Ok200Response(body).to_dict()
 
-    if api_event.path.endswith("/echo"):
-        body = {
-            "url": api_event.raw_path,
-            "queryStringParameters": api_event.query_string_parameters or dict(),
-            "method": api_event.http_method,
-            "headers": api_event.headers,
-        }
-        return aws_lambda_utils.Ok200Response(body).to_dict()
+        try:
+            boto3 = importlib.import_module("boto3")
+            data["boto3"] = boto3.__version__
+        except ImportError:
+            pass
+        try:
+            botocore = importlib.import_module("botocore")
+            data["botocore"] = botocore.__version__
+        except ImportError:
+            pass
+        try:
+            pydantic = importlib.import_module("pydantic")
+            data["pydantic"] = [
+                x.strip() for x in pydantic.version.version_info().split("\n")
+            ]
+        except ImportError:
+            pass
+
+        return aws_lambda_utils.Ok200Response(data).to_dict()
 
     if api_event.path.endswith("/health"):
         now = datetime_utils.now_utc().isoformat()
         logger.debug("Debug log entry")
         logger.info("Info log entry")
-        logger.warning("Warning log entry")
-        logger.error("Error log entry")
-        logger.critical("Critical log entry")
+        # Commented out otherwise they trigger `cloudwatch-error-email` Lambda to
+        #  send an email.
+        # logger.warning("Warning log entry")
+        # logger.error("Error log entry")
+        # logger.critical("Critical log entry")
         return aws_lambda_utils.Ok200Response(now).to_dict()
 
     if api_event.path.endswith("/unhealth"):
@@ -136,11 +148,11 @@ def lambda_handler(event: dict[str, Any], context: LambdaContext) -> dict:
         logger.warning("Warning log entry")
         logger.error("Error log entry")
         logger.critical("Critical log entry")
-        raise UnhealthCommandException(ts=now)
+        raise UnhealthEndpointException(ts=now)
 
     return aws_lambda_utils.NotFound404Response().to_dict()
 
 
-class UnhealthCommandException(Exception):
+class UnhealthEndpointException(Exception):
     def __init__(self, ts: str):
         self.ts = ts

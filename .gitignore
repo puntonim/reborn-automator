@@ -533,6 +533,7 @@ GitHub.sublime-settings
 
 .idea
 *.sqlite3
+*.svg.bkp
 # Un-ignore scripts dir and Makefile.
 !scripts
 !Makefile
