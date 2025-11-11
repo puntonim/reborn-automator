@@ -263,9 +263,9 @@ resources:
 
     # IMP: this is an UPDATE of a resource defined above.
     # This EventBridge Scheduler schedule is automatically created by Serverless as
-    #  defined in `functions: cron-check: events: schedule`. However Serverless
-    #  does not support the configuration I added here (the DLQ and retry in Target),
-    #  at the time of writing (nov 2025).
+    #  defined in `functions: cron-book-cali-class: events: schedule`.
+    #  However Serverless does not support the configuration I added here (the DLQ and
+    #  retry in Target), at the time of writing (nov 2025).
     # IMP: do not rename this resource! It must match the name automatically generated
     #  by Serverless for `functions: cron-book-cali-class: events: schedule`. You can
     #  find this name in the temp file: .serverless/serverless-state.json.

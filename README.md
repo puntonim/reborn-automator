@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/img/logo.png" height="256"></a>
+  <img src="docs/img/logo.png" height="512"></a>
   <h1 align="center">
     Reborn Automator
   </h1>
