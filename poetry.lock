@@ -21,19 +21,19 @@ trio = ["trio (>=0.31.0)"]
 
 [[package]]
 name = "asttokens"
-version = "3.0.0"
+version = "3.0.1"
 description = "Annotate AST trees with source code positions"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "asttokens-3.0.0-py3-none-any.whl", hash = "sha256:e3078351a059199dd5138cb1c706e6430c05eff2ff136af5eb4790f9d28932e2"},
-    {file = "asttokens-3.0.0.tar.gz", hash = "sha256:0dcd8baa8d62b0c1d118b399b2ddba3c4aff271d0d7a9e0d4c1681c79035bbc7"},
+    {file = "asttokens-3.0.1-py3-none-any.whl", hash = "sha256:15a3ebc0f43c2d0a50eeafea25e19046c68398e487b9f1f5b517f7c0f40f976a"},
+    {file = "asttokens-3.0.1.tar.gz", hash = "sha256:71a4ee5de0bde6a31d64f6b13f2293ac190344478f081c3d1bccfcf5eacb0cb7"},
 ]
 
 [package.extras]
-astroid = ["astroid (>=2,<4)"]
-test = ["astroid (>=2,<4)", "pytest", "pytest-cov", "pytest-xdist"]
+astroid = ["astroid (>=2,<5)"]
+test = ["astroid (>=2,<5)", "pytest (<9.0)", "pytest-cov", "pytest-xdist"]
 
 [[package]]
 name = "aws-lambda-client"
@@ -53,19 +53,19 @@ json-utils = {git = "https://github.com/puntonim/utils-monorepo", subdirectory =
 type = "git"
 url = "https://github.com/puntonim/clients-monorepo"
 reference = "HEAD"
-resolved_reference = "92bccee69350afdb87cf09c2dcaff0ce5dd3cff3"
+resolved_reference = "1a5108662b9ce92bceed1c64d42bad5f1776658d"
 subdirectory = "aws-lambda-client"
 
 [[package]]
 name = "aws-lambda-powertools"
-version = "3.22.1"
+version = "3.23.0"
 description = "Powertools for AWS Lambda (Python) is a developer toolkit to implement Serverless best practices and increase developer velocity."
 optional = false
 python-versions = "<4.0.0,>=3.9"
 groups = ["dev"]
 files = [
-    {file = "aws_lambda_powertools-3.22.1-py3-none-any.whl", hash = "sha256:ab144f1dc3412314e711f9feb1aa16da6b47b40c75b7fe2c22c6b3d4ad798d6e"},
-    {file = "aws_lambda_powertools-3.22.1.tar.gz", hash = "sha256:a9c45b028f210a6b46db42624afbb2aa916b98fa4fcd402765c69d182521891c"},
+    {file = "aws_lambda_powertools-3.23.0-py3-none-any.whl", hash = "sha256:f3d16f1b0304c686cc956ecf0f6f8907d21992a4a5070e2388c21571d8c84cc2"},
+    {file = "aws_lambda_powertools-3.23.0.tar.gz", hash = "sha256:30ab45960989dd75a4d84de4f156509458f8782038d532eee2f815488d7cc929"},
 ]
 
 [package.dependencies]
@@ -76,15 +76,15 @@ typing-extensions = ">=4.11.0,<5.0.0"
 [package.extras]
 all = ["aws-encryption-sdk (>=3.1.1,<5.0.0)", "aws-xray-sdk (>=2.8.0,<3.0.0)", "fastjsonschema (>=2.14.5,<3.0.0)", "jsonpath-ng (>=1.6.0,<2.0.0)", "pydantic (>=2.4.0,<3.0.0)", "pydantic-settings (>=2.6.1,<3.0.0)"]
 aws-sdk = ["boto3 (>=1.34.32,<2.0.0)"]
-datadog = ["datadog-lambda (>=6.106.0,<7.0.0)"]
+datadog = ["datadog-lambda (>=8.114.0,<9.0.0)"]
 datamasking = ["aws-encryption-sdk (>=3.1.1,<5.0.0)", "jsonpath-ng (>=1.6.0,<2.0.0)"]
 kafka-consumer-avro = ["avro (>=1.12.0,<2.0.0)"]
 kafka-consumer-protobuf = ["protobuf (>=6.30.2,<7.0.0)"]
 parser = ["pydantic (>=2.4.0,<3.0.0)"]
-redis = ["redis (>=4.4,<8.0)"]
+redis = ["redis (>=4.4,<7.0)"]
 tracer = ["aws-xray-sdk (>=2.8.0,<3.0.0)"]
 validation = ["fastjsonschema (>=2.14.5,<3.0.0)"]
-valkey = ["valkey-glide (>=1.3.5,<3.0)"]
+valkey = ["valkey-glide (>=1.3.5,<3.0) ; python_version < \"3.14\""]
 
 [[package]]
 name = "aws-parameter-store-client"
@@ -104,7 +104,7 @@ cache-utils = {git = "https://github.com/puntonim/utils-monorepo", subdirectory 
 type = "git"
 url = "https://github.com/puntonim/clients-monorepo"
 reference = "HEAD"
-resolved_reference = "92bccee69350afdb87cf09c2dcaff0ce5dd3cff3"
+resolved_reference = "1a5108662b9ce92bceed1c64d42bad5f1776658d"
 subdirectory = "aws-parameter-store-client"
 
 [[package]]
@@ -128,7 +128,7 @@ lambda-redact-http-headers = ["aws-lambda-powertools[aws-sdk] (>=3.22.0,<4.0.0)"
 type = "git"
 url = "https://github.com/puntonim/utils-monorepo"
 reference = "HEAD"
-resolved_reference = "d3c07f49e01fc3b54fc019b28668536602f43d76"
+resolved_reference = "5057ba0855efad177328db15f031afcb5239f278"
 subdirectory = "aws-utils"
 
 [[package]]
@@ -188,7 +188,7 @@ aws-lambda-client = {git = "https://github.com/puntonim/clients-monorepo", subdi
 type = "git"
 url = "https://github.com/puntonim/botte-monorepo"
 reference = "HEAD"
-resolved_reference = "598167463dd825db56bd4015f97a58ed0a28140a"
+resolved_reference = "76112169686d968e6142a2cb4bd6364fbcbadf8b"
 subdirectory = "libs/public-clients/botte-lambda-client"
 
 [[package]]
@@ -226,19 +226,19 @@ develop = false
 type = "git"
 url = "https://github.com/puntonim/utils-monorepo"
 reference = "HEAD"
-resolved_reference = "d3c07f49e01fc3b54fc019b28668536602f43d76"
+resolved_reference = "5057ba0855efad177328db15f031afcb5239f278"
 subdirectory = "cache-utils"
 
 [[package]]
 name = "cachecontrol"
-version = "0.14.3"
+version = "0.14.4"
 description = "httplib2 caching for requests"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "cachecontrol-0.14.3-py3-none-any.whl", hash = "sha256:b35e44a3113f17d2a31c1e6b27b9de6d4405f84ae51baa8c1d3cc5b633010cae"},
-    {file = "cachecontrol-0.14.3.tar.gz", hash = "sha256:73e7efec4b06b20d9267b441c1f733664f989fb8688391b670ca812d70795d11"},
+    {file = "cachecontrol-0.14.4-py3-none-any.whl", hash = "sha256:b7ac014ff72ee199b5f8af1de29d60239954f223e948196fa3d84adaffc71d2b"},
+    {file = "cachecontrol-0.14.4.tar.gz", hash = "sha256:e6220afafa4c22a47dd0badb319f84475d79108100d04e26e8542ef7d3ab05a1"},
 ]
 
 [package.dependencies]
@@ -247,20 +247,20 @@ msgpack = ">=0.5.2,<2.0.0"
 requests = ">=2.16.0"
 
 [package.extras]
-dev = ["CacheControl[filecache,redis]", "build", "cherrypy", "codespell[tomli]", "furo", "mypy", "pytest", "pytest-cov", "ruff", "sphinx", "sphinx-copybutton", "tox", "types-redis", "types-requests"]
+dev = ["cachecontrol[filecache,redis]", "cheroot (>=11.1.2)", "cherrypy", "codespell", "furo", "mypy", "pytest", "pytest-cov", "ruff", "sphinx", "sphinx-copybutton", "types-redis", "types-requests"]
 filecache = ["filelock (>=3.8.0)"]
 redis = ["redis (>=2.10.5)"]
 
 [[package]]
 name = "certifi"
-version = "2025.10.5"
+version = "2025.11.12"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.7"
 groups = ["main", "dev"]
 files = [
-    {file = "certifi-2025.10.5-py3-none-any.whl", hash = "sha256:0f212c2744a9bb6de0c56639a6f68afe01ecd92d91f14ae897c4fe7bbeeef0de"},
-    {file = "certifi-2025.10.5.tar.gz", hash = "sha256:47c09d31ccf2acf0be3f701ea53595ee7e0b8fa08801c6624be771df09ae7b43"},
+    {file = "certifi-2025.11.12-py3-none-any.whl", hash = "sha256:97de8790030bbd5c2d96b7ec782fc2f7820ef8dba6db909ccf95449f2d062d4b"},
+    {file = "certifi-2025.11.12.tar.gz", hash = "sha256:d8ab5478f2ecd78af242878415affce761ca6bc54a22a27e026d7c25357c3316"},
 ]
 
 [[package]]
@@ -617,7 +617,7 @@ develop = false
 type = "git"
 url = "https://github.com/puntonim/utils-monorepo"
 reference = "HEAD"
-resolved_reference = "d3c07f49e01fc3b54fc019b28668536602f43d76"
+resolved_reference = "5057ba0855efad177328db15f031afcb5239f278"
 subdirectory = "datetime-utils"
 
 [[package]]
@@ -697,44 +697,44 @@ pgp = ["gpg"]
 
 [[package]]
 name = "dulwich"
-version = "0.24.8"
+version = "0.24.10"
 description = "Python Git Library"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 markers = "platform_python_implementation != \"PyPy\""
 files = [
-    {file = "dulwich-0.24.8-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:661af1fa3852d970fef68b0ab431f0bd488c3f94306e89244c173c4e6abb978e"},
-    {file = "dulwich-0.24.8-cp310-cp310-manylinux_2_28_aarch64.whl", hash = "sha256:1bac020051cf228b33c787294e17ac80a284e028c3749437ee72577ee04e1cd9"},
-    {file = "dulwich-0.24.8-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:97f7c64b02fbd366c36557aa2e8642fc686aaec7d6569bc1460d0b38a63169f9"},
-    {file = "dulwich-0.24.8-cp310-cp310-win32.whl", hash = "sha256:f7519f3b8c66ba2e4ea66f47c2156a66cefedce2a121ac3227e030abe95698f3"},
-    {file = "dulwich-0.24.8-cp310-cp310-win_amd64.whl", hash = "sha256:a60f8a5d718c7cc1f60bb931cc915311fd5198d85d68dde0ef3c569311c14a70"},
-    {file = "dulwich-0.24.8-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:07aa6e7d41358fcba2a8ac53731e1b8ab201cac7a192ec678ef0da34c7643cf1"},
-    {file = "dulwich-0.24.8-cp311-cp311-manylinux_2_28_aarch64.whl", hash = "sha256:0e9aacbbb0b0cf4b3fecac2c29ddd4d4e36f03ced30851889c193986e8bb327e"},
-    {file = "dulwich-0.24.8-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:8eca5242f8aed324394c95ecd13a0a66d2a0c31c2556f0a52e7bb8dd67edef20"},
-    {file = "dulwich-0.24.8-cp311-cp311-win32.whl", hash = "sha256:108c74b329599931bfe66c4a34fb9312cd8136053cbfc04e7007e7c34081c6b7"},
-    {file = "dulwich-0.24.8-cp311-cp311-win_amd64.whl", hash = "sha256:efbf0f29d8d3d56a098e2b4a9260bdfa5f313142180a882c7b28e648d9b5ca9e"},
-    {file = "dulwich-0.24.8-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:8ac85e3ea42878fa91b6a9282652327df54f5abea4aaf674036e1000608a15f0"},
-    {file = "dulwich-0.24.8-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:b31e08bcd0a4eb29915987fa5273a827cccca7ee83eb27ef17bd5899f5668055"},
-    {file = "dulwich-0.24.8-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:267e79367cd6f438091248c1e826c6cf7abd84d5b641b9fe46fbc4d9119e11ed"},
-    {file = "dulwich-0.24.8-cp312-cp312-win32.whl", hash = "sha256:6a51a41e858e0427b14bb19df7ac1207275dd6b5cc1976f54710bf15cb4c5614"},
-    {file = "dulwich-0.24.8-cp312-cp312-win_amd64.whl", hash = "sha256:6016e3f7a0f1dd5e19df14b772cb8f42bfde0cd55c504642c05e1e8328de21e3"},
-    {file = "dulwich-0.24.8-cp313-cp313-android_21_arm64_v8a.whl", hash = "sha256:19be46710a9d810a66d4a925754abf3818ba22d61134e7d7e1d7b1585c9445b6"},
-    {file = "dulwich-0.24.8-cp313-cp313-android_21_x86_64.whl", hash = "sha256:17d8223cc69cf79ddd7a2f0893e223708f7efc2ea372f919ddcc0d852b3f5d06"},
-    {file = "dulwich-0.24.8-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:a0a780b512d4144336eac2f1f6b982eb78c313442e88ba0db853a224e2b918ef"},
-    {file = "dulwich-0.24.8-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:2e3a9a713fda94f3216da4743db3cc8d670330f44c4d98580ac4600242dba2c4"},
-    {file = "dulwich-0.24.8-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:b03474c16bcfa3524241b4ae89007931d79ac37c0b19e059133a6e63b7039845"},
-    {file = "dulwich-0.24.8-cp313-cp313-win32.whl", hash = "sha256:ec0f62538b6fb26cdd1b2fb70788ccfdb17df26a4ba1ca70e623e196c4004f5c"},
-    {file = "dulwich-0.24.8-cp313-cp313-win_amd64.whl", hash = "sha256:16e335bce0d5192d476db0ca81de1f90fb56863ad7d0b985b0333a8194c73c64"},
-    {file = "dulwich-0.24.8-cp314-cp314-android_24_arm64_v8a.whl", hash = "sha256:19855e8a0ce299cdcdafdc8bc4f6653bea9e02124a5022e13cda8103fb36912d"},
-    {file = "dulwich-0.24.8-cp314-cp314-android_24_x86_64.whl", hash = "sha256:da03c7a6629b7ed37e7139739a175f2c9678080a45444418c54ab28d2ec6524b"},
-    {file = "dulwich-0.24.8-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:f7a0d2cef91cf92a44071daa92639f648ab756d3db63a99e37d3a08ebacf69f3"},
-    {file = "dulwich-0.24.8-cp39-cp39-manylinux_2_28_aarch64.whl", hash = "sha256:5593a7216b27412333b99b2e1851bcc2485485d5c4694430aa86d34a36f08d63"},
-    {file = "dulwich-0.24.8-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:ea6c63d3e40fc321ec7c5673b92be036b57aba7802c7e94a18f61451af382de0"},
-    {file = "dulwich-0.24.8-cp39-cp39-win32.whl", hash = "sha256:a6055b12cf2b90a0b4c21d38594f2681667d26bb0c135dfc36c2ea6de7458a37"},
-    {file = "dulwich-0.24.8-cp39-cp39-win_amd64.whl", hash = "sha256:138fd2480c1db43f372d52e4e6ed050c15f92ffbeeab9a0877dceb9801c65d2a"},
-    {file = "dulwich-0.24.8-py3-none-any.whl", hash = "sha256:6ffdd616135bcb31eb2edcccf82d4408720f1db69f596f687ffa2d26c2f5e6f4"},
-    {file = "dulwich-0.24.8.tar.gz", hash = "sha256:c9f4748bbcca56fb57458c71c0d30e2351ac15e0583d428c739c09228be68f05"},
+    {file = "dulwich-0.24.10-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:1f511f7afe1f36e37193214e4e069685d7d0378e756cc96a2fcb138bdf9fefca"},
+    {file = "dulwich-0.24.10-cp310-cp310-manylinux_2_28_aarch64.whl", hash = "sha256:2a56f9838e5d2414a2b57bab370b73b9803fefd98836ef841f0fd489b5cc1349"},
+    {file = "dulwich-0.24.10-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:90b24c0827299cfb53c4f4d4fedc811be5c4b10c11172ff6e5a5c52277fe0b3a"},
+    {file = "dulwich-0.24.10-cp310-cp310-win32.whl", hash = "sha256:0dfae8c59b97964a907fdf4c5809154a18fd8c55f2eb6d8fd1607464165a9aa2"},
+    {file = "dulwich-0.24.10-cp310-cp310-win_amd64.whl", hash = "sha256:0e1601789554e3d15b294356c78a5403521c27d5460e64dbbc44ffd5b10af4c3"},
+    {file = "dulwich-0.24.10-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:fbf94fa73211d2f029751a72e1ca3a2fd35c6f5d9bb434acdf10a4a79ca322dd"},
+    {file = "dulwich-0.24.10-cp311-cp311-manylinux_2_28_aarch64.whl", hash = "sha256:b715a9f85ed71bef8027275c1bded064e4925071ae8c8a8d9a20c67b31faf3cd"},
+    {file = "dulwich-0.24.10-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:858fae0c7121715282a993abb1919385a28e1a9c4f136f568748d283c2ba874f"},
+    {file = "dulwich-0.24.10-cp311-cp311-win32.whl", hash = "sha256:393e9c3cdd382cff20b5beb66989376d6da69e3b0dfec046a884707ab5d27ac9"},
+    {file = "dulwich-0.24.10-cp311-cp311-win_amd64.whl", hash = "sha256:470d6cd8207e1a5ff1fb34c4c6fac2ec9a96d618f7062e5fb96c5260927bb9a7"},
+    {file = "dulwich-0.24.10-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:5c724e5fc67c45f3c813f2630795ac388e3e6310534212f799a7a6bf230648c8"},
+    {file = "dulwich-0.24.10-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:6a25ca1605a94090514af408f9df64427281aefbb726f542e97d86d3a7c8ec18"},
+    {file = "dulwich-0.24.10-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:d9793fc1e42149a650a017dc8ce38485368a41729b9937e1dfcfedd0591ebe9d"},
+    {file = "dulwich-0.24.10-cp312-cp312-win32.whl", hash = "sha256:1601bfea3906b52c924fae5b6ba32a0b087fb8fae927607e6b5381e6f7559611"},
+    {file = "dulwich-0.24.10-cp312-cp312-win_amd64.whl", hash = "sha256:f7bfa9f0bfae57685754b163eef6641609047460939d28052e3beeb63efa6795"},
+    {file = "dulwich-0.24.10-cp313-cp313-android_21_arm64_v8a.whl", hash = "sha256:843de5f678436a27b33aea0f2b87fd0453afdd0135f885a3ca44bc3147846dd2"},
+    {file = "dulwich-0.24.10-cp313-cp313-android_21_x86_64.whl", hash = "sha256:4914abb6408a719b7a1f7d9a182d1efd92c326e178b440faf582df50f9f032db"},
+    {file = "dulwich-0.24.10-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:ce6e05ec50f258ccd14d83114eb32cc5bb241ae4a8c7199d014fd7568de285b1"},
+    {file = "dulwich-0.24.10-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:3581ae0af33f28e6c0834d2f41ca67ca81cd92a589e6a5f985e6c64373232958"},
+    {file = "dulwich-0.24.10-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:019af16c850ae85254289f9633a29dea02f45351c4182ea20b0c1394c074a13b"},
+    {file = "dulwich-0.24.10-cp313-cp313-win32.whl", hash = "sha256:4b5c225477a529e1d4a2b5e51272a418177e34803938391ce41b7573b2e5b0d0"},
+    {file = "dulwich-0.24.10-cp313-cp313-win_amd64.whl", hash = "sha256:752c32d517dc608dbb8414061eaaec8ac8a05591b29531f81a83336b018b26c6"},
+    {file = "dulwich-0.24.10-cp314-cp314-android_24_arm64_v8a.whl", hash = "sha256:44f62e0244531a8c43ca7771e201ec9e7f6a2fb27f8c3c623939bc03c1f50423"},
+    {file = "dulwich-0.24.10-cp314-cp314-android_24_x86_64.whl", hash = "sha256:e2eda4a634d6f1ac4c0d4786f8772495c8840dfc2b3e595507376bf5e5b0f9c5"},
+    {file = "dulwich-0.24.10-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:1b19af8a3ab051003ba05f15fc5c0d6f0d427e795639490790f34ec0558e99e3"},
+    {file = "dulwich-0.24.10-cp39-cp39-manylinux_2_28_aarch64.whl", hash = "sha256:90028182b9a47ea4efed51c81298f3a98e279d7bf5c1f91c47101927a309ee45"},
+    {file = "dulwich-0.24.10-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:8df79c8080471f363e4dfcfc4e0d2e61e6da73af1fd7d31cb6ae0d34af45a6b4"},
+    {file = "dulwich-0.24.10-cp39-cp39-win32.whl", hash = "sha256:f102c38207540fa485e85e0b763ce3725a2d49d846dbf316ed271e27fd85ff21"},
+    {file = "dulwich-0.24.10-cp39-cp39-win_amd64.whl", hash = "sha256:c262ffc94338999e7808b434dccafaccd572d03b42d4ef140059d4b7cad765a3"},
+    {file = "dulwich-0.24.10-py3-none-any.whl", hash = "sha256:15b32f8c3116a1c0a042dde8da96f65a607e263e860ee42b3d4a98ce2c2f4a06"},
+    {file = "dulwich-0.24.10.tar.gz", hash = "sha256:30e028979b6fa7220c913da9c786026611c10746c06496149742602b36a11f6b"},
 ]
 
 [package.dependencies]
@@ -753,14 +753,14 @@ pgp = ["gpg"]
 
 [[package]]
 name = "execnet"
-version = "2.1.1"
+version = "2.1.2"
 description = "execnet: rapid multi-Python deployment"
 optional = false
 python-versions = ">=3.8"
 groups = ["test"]
 files = [
-    {file = "execnet-2.1.1-py3-none-any.whl", hash = "sha256:26dee51f1b80cebd6d0ca8e74dd8745419761d3bef34163928cbebbdc4749fdc"},
-    {file = "execnet-2.1.1.tar.gz", hash = "sha256:5189b52c6121c24feae288166ab41b32549c7e2348652736540b9e6e7d4e72e3"},
+    {file = "execnet-2.1.2-py3-none-any.whl", hash = "sha256:67fba928dd5a544b783f6056f449e5e3931a5c378b128bc18501f7ea79e296ec"},
+    {file = "execnet-2.1.2.tar.gz", hash = "sha256:63d83bfdd9a23e35b9c6a3261412324f964c2ec8dcd8d3c6916ee9373e0befcd"},
 ]
 
 [package.extras]
@@ -810,14 +810,14 @@ files = [
 
 [[package]]
 name = "findpython"
-version = "0.7.0"
+version = "0.7.1"
 description = "A utility to find python versions on your system"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "findpython-0.7.0-py3-none-any.whl", hash = "sha256:f53cfcc29536f5b83c962cf922bba8ff6d6a3c2a05fda6a45aa58a47d005d8fc"},
-    {file = "findpython-0.7.0.tar.gz", hash = "sha256:8b31647c76352779a3c1a0806699b68e6a7bdc0b5c2ddd9af2a07a0d40c673dc"},
+    {file = "findpython-0.7.1-py3-none-any.whl", hash = "sha256:1b78b1ff6e886cbddeffe80f8ecdbf2b8b061169bbd18b673070e26b644c51ac"},
+    {file = "findpython-0.7.1.tar.gz", hash = "sha256:9f29e6a3dabdb75f2b39c949772c0ed26eab15308006669f3478cdab0d867c78"},
 ]
 
 [package.dependencies]
@@ -1106,7 +1106,7 @@ develop = false
 type = "git"
 url = "https://github.com/puntonim/utils-monorepo"
 reference = "HEAD"
-resolved_reference = "d3c07f49e01fc3b54fc019b28668536602f43d76"
+resolved_reference = "5057ba0855efad177328db15f031afcb5239f278"
 subdirectory = "json-utils"
 
 [[package]]
@@ -1157,7 +1157,7 @@ rich-adapter = ["rich (>=13.9.4,<14.0.0)"]
 type = "git"
 url = "https://github.com/puntonim/utils-monorepo"
 reference = "HEAD"
-resolved_reference = "d3c07f49e01fc3b54fc019b28668536602f43d76"
+resolved_reference = "5057ba0855efad177328db15f031afcb5239f278"
 subdirectory = "log-utils"
 
 [[package]]
@@ -2199,15 +2199,15 @@ crt = ["botocore[crt] (>=1.37.4,<2.0a.0)"]
 
 [[package]]
 name = "secretstorage"
-version = "3.4.0"
+version = "3.4.1"
 description = "Python bindings to FreeDesktop.org Secret Service API"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 markers = "sys_platform == \"linux\""
 files = [
-    {file = "secretstorage-3.4.0-py3-none-any.whl", hash = "sha256:0e3b6265c2c63509fb7415717607e4b2c9ab767b7f344a57473b779ca13bd02e"},
-    {file = "secretstorage-3.4.0.tar.gz", hash = "sha256:c46e216d6815aff8a8a18706a2fbfd8d53fcbb0dce99301881687a1b0289ef7c"},
+    {file = "secretstorage-3.4.1-py3-none-any.whl", hash = "sha256:c55d57b4da3de568d8c3af89dad244ab24c35ca1da8625fc1b550edf005ebc41"},
+    {file = "secretstorage-3.4.1.tar.gz", hash = "sha256:a799acf5be9fb93db609ebaa4ab6e8f1f3ed5ae640e0fa732bfea59e9c3b50e8"},
 ]
 
 [package.dependencies]
@@ -2234,7 +2234,7 @@ get-from-aws-param-store = ["aws-parameter-store-client @ git+https://github.com
 type = "git"
 url = "https://github.com/puntonim/utils-monorepo"
 reference = "HEAD"
-resolved_reference = "d3c07f49e01fc3b54fc019b28668536602f43d76"
+resolved_reference = "5057ba0855efad177328db15f031afcb5239f278"
 subdirectory = "settings-utils"
 
 [[package]]
@@ -2307,7 +2307,7 @@ develop = false
 type = "git"
 url = "https://github.com/puntonim/utils-monorepo"
 reference = "HEAD"
-resolved_reference = "d3c07f49e01fc3b54fc019b28668536602f43d76"
+resolved_reference = "5057ba0855efad177328db15f031afcb5239f278"
 subdirectory = "text-utils"
 
 [[package]]
@@ -2340,14 +2340,14 @@ test = ["argcomplete (>=3.0.3)", "mypy (>=1.7.0)", "pre-commit", "pytest (>=7.0,
 
 [[package]]
 name = "trove-classifiers"
-version = "2025.9.11.17"
+version = "2025.11.14.15"
 description = "Canonical source for classifiers on PyPI (pypi.org)."
 optional = false
 python-versions = "*"
 groups = ["dev"]
 files = [
-    {file = "trove_classifiers-2025.9.11.17-py3-none-any.whl", hash = "sha256:5d392f2d244deb1866556457d6f3516792124a23d1c3a463a2e8668a5d1c15dd"},
-    {file = "trove_classifiers-2025.9.11.17.tar.gz", hash = "sha256:931ca9841a5e9c9408bc2ae67b50d28acf85bef56219b56860876dd1f2d024dd"},
+    {file = "trove_classifiers-2025.11.14.15-py3-none-any.whl", hash = "sha256:d1dac259c1e908939862e3331177931c6df0a37af2c1a8debcc603d9115fcdd9"},
+    {file = "trove_classifiers-2025.11.14.15.tar.gz", hash = "sha256:6b60f49d40bbd895bc61d8dc414fc2f2286d70eb72ed23548db8cf94f62804ca"},
 ]
 
 [[package]]
